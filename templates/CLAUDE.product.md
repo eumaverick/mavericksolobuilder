@@ -9,6 +9,18 @@
 - Perfil: `<web-nextjs | backend-node | mobile-expo>`
 - <Detalhes específicos: libs principais, serviços externos, banco...>
 
+## Design System
+> **Fonte de verdade do design.** Tech Lead e Devs consultam aqui ANTES de criar/alterar qualquer UI
+> (web, mobile, notificações, e-mail). Nada de cor/espaçamento "mágico" — tudo deriva dos tokens.
+- **Tokens (fonte de verdade):** `design/tokens.json` — formato **DTCG** (W3C Design Tokens): cor,
+  tipografia, espaçamento, raio, sombra, motion.
+- **Build multi-plataforma:** `pnpm tokens:build` (Style Dictionary) gera de `tokens.json` →
+  variáveis CSS (web), tema NativeWind (mobile) e JSON (notificações/e-mail) em `design/build/`.
+- **Componentes:** `<caminho>` (shadcn/Radix + Tailwind), catalogados no Storybook.
+- **Catálogo navegável (Storybook):** local `pnpm storybook` · publicado em `<URL Vercel>`.
+- **Protótipos navegáveis:** `<URL Vercel do protótipo>`.
+- **Acesso de stakeholders:** `<como logar — ex.: gate de login simples por usuário/senha>`.
+
 ## Convenções de código
 <Padrões a seguir: estrutura de pastas, nomenclatura, estilo. Atualize conforme o projeto evolui.>
 

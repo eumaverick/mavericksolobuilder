@@ -9,6 +9,10 @@ Use este perfil para apps iOS/Android.
 - **Testes:** Jest + React Native Testing Library
 - **Gerenciador de pacotes:** pnpm
 
+## Design system (mesma fonte do web)
+- **Tokens (fonte de verdade):** `design/tokens.json` (**DTCG**) — os mesmos do web. `pnpm tokens:build` (Style Dictionary) gera o **tema NativeWind** em `design/build/`; nada de cor/espaçamento hardcoded.
+- Componentes acessíveis equivalentes aos do web (mesmas variantes/estados); valide no simulador.
+
 ## Comandos
 - Instalar: `pnpm install`
 - Dev: `pnpm start` (Expo)

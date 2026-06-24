@@ -29,6 +29,8 @@ Depois inicialize o shadcn/ui: `pnpm dlx shadcn@latest init`.
 - **Vercel.** Conecte o repositório; cada PR gera um *preview deploy* automático e o merge na main publica em produção. Sem configuração manual de servidor.
 
 ## Design system & acessibilidade
-- Componentes: **shadcn/ui** (sobre Radix, acessível) + Tailwind. Catálogo navegável no **Storybook**.
+- **Tokens (fonte de verdade):** `design/tokens.json` (**DTCG**); `pnpm tokens:build` (Style Dictionary) gera as variáveis CSS / tema do Tailwind em `design/build/`. Componentes e telas consomem SÓ os tokens.
+- Componentes: **shadcn/ui** (sobre Radix, acessível) + Tailwind. Catálogo navegável no **Storybook**, publicado em URL fixa.
 - Acessibilidade: meta **WCAG 2.2 AA**; valide com **axe-core** (addon a11y do Storybook / Playwright) e **Lighthouse**.
-- Protótipos navegáveis = páginas reais; gere preview na Vercel para navegação por URL.
+- Protótipos navegáveis = páginas reais; publique na Vercel (URL fixa) para navegação por URL.
+- **Acesso restrito sem custo:** o plano free da Vercel não tem proteção por senha; para liberar só a stakeholders, use um **gate de login simples** (middleware Next.js conferindo usuário/senha de variável de ambiente) — fica gratuito.

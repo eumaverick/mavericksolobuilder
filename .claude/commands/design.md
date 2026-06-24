@@ -12,8 +12,10 @@ Roteiro:
 
 1. Se a tarefa exigir planejamento (várias telas/fluxos), acione o `tech-lead` para quebrar em cards no Linear. Para algo direto, vá ao passo 2.
 2. **Acione o subagente `design-engineer`** para criar/evoluir:
-   - **design system** — tokens + componentes acessíveis (Tailwind + shadcn/Radix), catalogados no **Storybook**; e/ou
+   - **design system** — tokens em `design/tokens.json` (**DTCG**) + build multi-plataforma (`pnpm tokens:build`) + componentes acessíveis (Tailwind + shadcn/Radix), catalogados no **Storybook**; e/ou
    - **protótipos navegáveis** — telas/fluxos reais e clicáveis (páginas com roteamento), reaproveitando os tokens.
 3. **Acessibilidade (WCAG 2.2 AA):** rode axe (Storybook a11y / Playwright) e Lighthouse; corrija até passar.
 4. **Validação visual:** o design-engineer abre o resultado no navegador, tira screenshots por breakpoint/estado e itera.
-5. Abra PR com Storybook, preview navegável (deploy), screenshots e o relatório de a11y. Resuma o que foi entregue.
+5. **Persistir + publicar:** tokens/componentes versionados no repo; Storybook e protótipos com **deploy em URL fixa** na Vercel (gate de login simples se o acesso precisar ser restrito).
+6. **Registrar:** atualize a seção **Design System** do `CLAUDE.md` do produto com os caminhos e as URLs publicadas — é de onde Tech Lead e Devs puxam os padrões.
+7. Abra PR com Storybook, preview navegável (deploy), screenshots e o relatório de a11y. Resuma o que foi entregue.
