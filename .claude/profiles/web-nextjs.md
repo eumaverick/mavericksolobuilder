@@ -27,3 +27,8 @@ Depois inicialize o shadcn/ui: `pnpm dlx shadcn@latest init`.
 
 ## Deploy nos trilhos
 - **Vercel.** Conecte o repositório; cada PR gera um *preview deploy* automático e o merge na main publica em produção. Sem configuração manual de servidor.
+
+## Design system & acessibilidade
+- Componentes: **shadcn/ui** (sobre Radix, acessível) + Tailwind. Catálogo navegável no **Storybook**.
+- Acessibilidade: meta **WCAG 2.2 AA**; valide com **axe-core** (addon a11y do Storybook / Playwright) e **Lighthouse**.
+- Protótipos navegáveis = páginas reais; gere preview na Vercel para navegação por URL.
