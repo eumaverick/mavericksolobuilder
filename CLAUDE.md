@@ -1,42 +1,53 @@
-# DevFlow Starter — fábrica de software multi-agente
+# Maverick Solo Builder — fábrica de software multi-agente
 
-Este repositório é um **kit reutilizável** que transforma briefings de negócio em software, com separação entre **planejamento** (modelo forte) e **execução** (modelo simples), para otimizar custo de tokens e qualidade.
+Método reutilizável que transforma briefings de negócio em software, separando **planejamento**
+(modelo forte) de **execução** (modelo simples), para otimizar custo de tokens e qualidade.
+Repositório-fonte: https://github.com/eumaverick/mavericksolobuilder · instalado globalmente em `~/.claude`.
 
-## Como usar
-
-Você (PM) interage só por **briefings** e por **4 comandos**:
+## Os 5 pontos de entrada (obrigatórios para todo trabalho de dev)
 
 - `/new-product <briefing>` — cria um produto do zero.
 - `/feature <descrição>` — adiciona uma feature a um produto existente.
 - `/bug <relato>` — corrige um bug.
 - `/design <briefing>` — cria design system / protótipos.
+- `/review <PR ou vazio>` — revisa projeto / código / PR.
 
-Internamente, o comando `/implement <CARD-ID>` dispara o desenvolvedor certo para um card específico do Linear.
+Interno: `/implement <CARD-ID>` dispara o desenvolvedor certo para um card do Linear.
 
 ## O fluxo
 
-1. Você escreve um briefing num dos 4 comandos.
-2. O **Tech Lead** (agente, modelo Opus) esclarece dúvidas, desenha a solução e cria **cards no Linear** com critérios de aceite + etiqueta de complexidade.
-3. **Gate híbrido por complexidade:**
-   - 🟢 `junior` (Haiku) → roda **automaticamente**.
-   - 🟡 `pleno` (Sonnet) → **espera sua aprovação**.
-   - 🔴 `senior` (Opus) → mostra o **plano** e espera sua aprovação.
-4. O desenvolvedor implementa **um card por vez**, escreve testes e abre um **PR com evidência visual** (screenshot/teste).
-5. Você revisa visualmente, aprova e o **deploy roda nos trilhos** (Vercel/Railway/EAS conforme a stack).
+1. Você escreve um briefing num dos comandos.
+2. O **Tech Lead** (Opus) esclarece dúvidas, desenha a solução e cria **cards no Linear** com
+   critérios de aceite + etiqueta de complexidade.
+3. **Gate híbrido:** 🟢 `junior` (Haiku) roda automático; 🟡 `pleno` (Sonnet) espera sua aprovação;
+   🔴 `senior` (Opus) mostra o plano e espera aprovação.
+4. O dev implementa **um card por vez**, com testes e **PR com evidência visual**.
+5. Você revisa, aprova e o **deploy roda nos trilhos** (Vercel/Railway/EAS conforme a stack).
+
+## Instalação global
+
+Os agentes e comandos vivem globalmente em `~/.claude/` (symlinks para este repositório, criados por
+`./install.sh`). Assim TODO projeto, em qualquer pasta, já tem o fluxo — não é preciso copiar nada para
+cada produto. A regra obrigatória de uso está em `global-claude.md` → `~/.claude/CLAUDE.md`.
+
+Após editar o método, rode `./install.sh` de novo (symlinks repropagam sozinhos) e faça commit + push.
 
 ## Componentes
 
-- `.claude/agents/` — os papéis: `tech-lead` (Opus), `dev-junior` (Haiku), `dev-pleno` (Sonnet), `dev-senior` (Opus), `design-engineer` (Sonnet).
-- `.claude/commands/` — os 4 pontos de entrada + `implement`.
-- `.claude/profiles/` — conhecimento de stack (web/backend/mobile), carregado por produto.
+- `.claude/agents/` — `tech-lead` (Opus), `dev-junior` (Haiku), `dev-pleno` (Sonnet), `dev-senior` (Opus),
+  `design-engineer` (Sonnet), `code-reviewer` (Sonnet).
+- `.claude/commands/` — `new-product`, `feature`, `bug`, `design`, `review` + `implement`.
+- `.claude/profiles/` — stacks (web-nextjs, backend-node, mobile-expo) → instalados em `~/.claude/profiles/`.
 - `templates/CLAUDE.product.md` — o `CLAUDE.md` que cada produto novo recebe.
+- `global-claude.md` — regra global obrigatória (vira `~/.claude/CLAUDE.md`).
+- `install.sh` — instala/atualiza o método globalmente.
 
 ## Princípio-guia
 
-**Gaste o modelo caro pensando; o barato digitando.** O maior custo está em specs ruins, não no modelo que escreve o código. Cards claros = menos retrabalho = menos tokens.
+**Gaste o modelo caro pensando; o barato digitando.** O maior custo está em specs ruins, não no modelo
+que escreve o código. Cards claros = menos retrabalho = menos tokens.
 
 ## Linear
 
-Os cards vivem no Linear (via MCP oficial, endpoint `https://mcp.linear.app/mcp`). Projetos-rascunho disponíveis: **Project 1**, **Project 2**, **Project 3** — reaproveite-os renomeando para o produto, ou crie um projeto novo. Cada produto registra no seu próprio `CLAUDE.md` qual projeto do Linear usa.
-
-> Ao criar um produto, este starter é copiado para a pasta do produto e o `CLAUDE.md` é substituído pelo do produto (gerado de `templates/CLAUDE.product.md`).
+Cards via MCP oficial (`https://mcp.linear.app/mcp`). Reaproveite rascunhos renomeando-os para o produto,
+ou crie um projeto novo. Cada produto registra no seu próprio `CLAUDE.md` qual projeto do Linear usa.

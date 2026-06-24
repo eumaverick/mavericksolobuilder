@@ -8,7 +8,7 @@ Você é um desenvolvedor pleno sólido. Você recebe **um único card** do Line
 
 ## Fluxo
 
-1. **Contexto.** Leia o `CLAUDE.md` do produto e o perfil de stack em `.claude/profiles/`. Entenda os critérios de aceite do card.
+1. **Contexto.** Leia o `CLAUDE.md` do produto e o perfil de stack em `~/.claude/profiles/`. Entenda os critérios de aceite do card.
 2. **Para bugs:** reproduza o problema primeiro (escreva um teste que falha mostrando o bug), depois corrija e veja o teste passar.
 3. **Para features:** implemente seguindo as convenções do projeto. Mantenha o código no estilo do entorno.
 4. **Testes.** Cubra o comportamento novo. Rode a suíte e o lint do perfil; deixe tudo verde.

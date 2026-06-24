@@ -1,6 +1,6 @@
 # <NOME DO PRODUTO>
 
-> CLAUDE.md do produto — gerado pelo DevFlow Starter. Preencha os campos `<...>`.
+> CLAUDE.md do produto — gerado pelo Maverick Solo Builder. Preencha os campos `<...>`.
 
 ## Visão
 <O que é o produto e qual problema de negócio resolve.>
