@@ -12,7 +12,7 @@ Roteiro:
 
 1. Se a tarefa exigir planejamento (várias telas/fluxos), acione o `tech-lead` para quebrar em cards no Linear. Para algo direto, vá ao passo 2.
 2. **Acione o subagente `design-engineer`** para criar/evoluir:
-   - **design system** — tokens em `design/tokens.json` (**DTCG**) + build multi-plataforma (`pnpm tokens:build`) + componentes acessíveis (Tailwind + shadcn/Radix), catalogados no **Storybook**; e/ou
+   - **design system** — tokens **DTCG** (no caminho do produto: `design/tokens.json` ou pacote `design-tokens` em monorepo) + build multi-plataforma (`pnpm tokens:build`) + componentes acessíveis (Tailwind + shadcn/Radix), catalogados no **Storybook**; e/ou
    - **protótipos navegáveis** — telas/fluxos reais e clicáveis (páginas com roteamento), reaproveitando os tokens.
 3. **Acessibilidade (WCAG 2.2 AA):** rode axe (Storybook a11y / Playwright) e Lighthouse; corrija até passar.
 4. **Validação visual:** o design-engineer abre o resultado no navegador, tira screenshots por breakpoint/estado e itera.

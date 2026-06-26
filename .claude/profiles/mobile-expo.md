@@ -10,7 +10,7 @@ Use este perfil para apps iOS/Android.
 - **Gerenciador de pacotes:** pnpm
 
 ## Design system (mesma fonte do web)
-- **Tokens (fonte de verdade):** `design/tokens.json` (**DTCG**) — os mesmos do web. `pnpm tokens:build` (Style Dictionary) gera o **tema NativeWind** em `design/build/`; nada de cor/espaçamento hardcoded.
+- **Tokens (fonte de verdade):** os **mesmos do web** — tokens DTCG no caminho registrado na seção **Design System** do `CLAUDE.md` (default `design/tokens.json`; em monorepo, um pacote `design-tokens`). `pnpm tokens:build` (Style Dictionary) gera o **tema NativeWind** num `build/` versionado; nada de cor/espaçamento hardcoded.
 - Componentes acessíveis equivalentes aos do web (mesmas variantes/estados); valide no simulador.
 
 ## Comandos

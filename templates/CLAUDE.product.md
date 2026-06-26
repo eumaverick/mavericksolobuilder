@@ -12,10 +12,12 @@
 ## Design System
 > **Fonte de verdade do design.** Tech Lead e Devs consultam aqui ANTES de criar/alterar qualquer UI
 > (web, mobile, notificações, e-mail). Nada de cor/espaçamento "mágico" — tudo deriva dos tokens.
-- **Tokens (fonte de verdade):** `design/tokens.json` — formato **DTCG** (W3C Design Tokens): cor,
-  tipografia, espaçamento, raio, sombra, motion.
-- **Build multi-plataforma:** `pnpm tokens:build` (Style Dictionary) gera de `tokens.json` →
-  variáveis CSS (web), tema NativeWind (mobile) e JSON (notificações/e-mail) em `design/build/`.
+- **Tokens (fonte de verdade):** `<caminho dos tokens>` — formato **DTCG** (W3C Design Tokens): cor,
+  tipografia, espaçamento, raio, sombra, motion. _Default `design/tokens.json` na raiz; em **monorepo**,
+  um pacote como `packages/design-tokens/`. **Este caminho aqui é a referência oficial** — Tech Lead e Devs
+  seguem o que estiver registrado nesta seção, não um caminho fixo._
+- **Build multi-plataforma:** `<comando de build, ex.: pnpm tokens:build>` (Style Dictionary) gera dos tokens →
+  variáveis CSS (web), tema NativeWind (mobile) e JSON (notificações/e-mail) num `build/` versionado.
 - **Componentes:** `<caminho>` (shadcn/Radix + Tailwind), catalogados no Storybook.
 - **Catálogo navegável (Storybook):** local `pnpm storybook` · publicado em `<URL Vercel>`.
 - **Protótipos navegáveis:** `<URL Vercel do protótipo>`.

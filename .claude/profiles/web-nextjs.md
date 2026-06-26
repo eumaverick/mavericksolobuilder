@@ -29,7 +29,7 @@ Depois inicialize o shadcn/ui: `pnpm dlx shadcn@latest init`.
 - **Vercel.** Conecte o repositório; cada PR gera um *preview deploy* automático e o merge na main publica em produção. Sem configuração manual de servidor.
 
 ## Design system & acessibilidade
-- **Tokens (fonte de verdade):** `design/tokens.json` (**DTCG**); `pnpm tokens:build` (Style Dictionary) gera as variáveis CSS / tema do Tailwind em `design/build/`. Componentes e telas consomem SÓ os tokens.
+- **Tokens (fonte de verdade):** tokens **DTCG** no caminho registrado na seção **Design System** do `CLAUDE.md` (default `design/tokens.json`; em monorepo, um pacote `design-tokens`); `pnpm tokens:build` (Style Dictionary) gera as variáveis CSS / tema do Tailwind num `build/` versionado. Componentes e telas consomem SÓ os tokens.
 - Componentes: **shadcn/ui** (sobre Radix, acessível) + Tailwind. Catálogo navegável no **Storybook**, publicado em URL fixa.
 - Acessibilidade: meta **WCAG 2.2 AA**; valide com **axe-core** (addon a11y do Storybook / Playwright) e **Lighthouse**.
 - Protótipos navegáveis = páginas reais; publique na Vercel (URL fixa) para navegação por URL.
