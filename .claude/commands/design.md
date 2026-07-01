@@ -17,5 +17,5 @@ Roteiro:
 3. **Acessibilidade (WCAG 2.2 AA):** rode axe (Storybook a11y / Playwright) e Lighthouse; corrija até passar.
 4. **Validação visual:** o design-engineer abre o resultado no navegador, tira screenshots por breakpoint/estado e itera.
 5. **Persistir + publicar:** tokens/componentes versionados no repo; Storybook e protótipos com **deploy em URL fixa** na Vercel (gate de login simples se o acesso precisar ser restrito).
-6. **Registrar:** atualize a seção **Design System** do `CLAUDE.md` do produto com os caminhos e as URLs publicadas — é de onde Tech Lead e Devs puxam os padrões.
-7. Abra PR com Storybook, preview navegável (deploy), screenshots e o relatório de a11y. Resuma o que foi entregue.
+6. **Registrar:** atualize a seção **Design System** do `CLAUDE.md` do produto com os caminhos e as URLs publicadas — é de onde Tech Lead e Devs puxam os padrões (e de onde o Tech Lead copia os caminhos para dentro dos cards de UI).
+7. Abra PR com Storybook, preview navegável (deploy), screenshots e o relatório de a11y. Rode a esteira de fechamento: revisão pelo `code-reviewer`, merge na main, `git push` (GitHub é a fonte de verdade). Resuma o que foi entregue.
