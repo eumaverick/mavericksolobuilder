@@ -23,3 +23,8 @@ Roteiro:
 4. **Resuma para o PM:** diagnóstico em linguagem de negócio, o que foi corrigido, link do PR e a
    evidência (teste de regressão passando). Se a correção merecer registro, o dev adiciona a lição
    em `docs/LEARNINGS.md`.
+
+> **Caveman:** se o modo caveman estiver ativo nesta sessão, inclua no prompt de CADA subagente
+> acionado (passos 1 e 3: `tech-lead`, `dev-*`, `code-reviewer` via `/implement`): "modo caveman
+> ativo: <nível> — comprima sua resposta e raciocínio de acordo." Ele não herda sozinho (lei do
+> `~/.claude/CLAUDE.md`).

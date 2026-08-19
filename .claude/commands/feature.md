@@ -22,3 +22,7 @@ Roteiro:
    plano (`senior`).
 4. **Ofereça iniciar a esteira:** sugira rodar `/milestone` para executar o primeiro milestone de
    ponta a ponta (implementação → revisão → merge → push → validação do PM).
+
+> **Caveman:** se o modo caveman estiver ativo nesta sessão, inclua no prompt do `tech-lead` (passo
+> 1): "modo caveman ativo: <nível> — comprima sua resposta e raciocínio de acordo." Ele não herda
+> sozinho (lei do `~/.claude/CLAUDE.md`).

@@ -19,6 +19,10 @@ Você é o **orquestrador da esteira** para este card. Máquina de estados, sem 
 4. **Implementação:** acione o subagente do nível (`dev-junior`/`dev-pleno`/`dev-senior`). Ele
    entrega branch + PR + evidência + aprendizado e para.
 5. **Revisão automática:** acione o `code-reviewer` (diff do PR + critérios do card).
+
+> **Caveman:** se o modo caveman estiver ativo nesta sessão, inclua no prompt de CADA subagente
+> acionado nos passos 3–5 acima: "modo caveman ativo: <nível> — comprima sua resposta e raciocínio
+> de acordo." Ele não herda sozinho (lei do `~/.claude/CLAUDE.md`).
    - **PRECISA DE MUDANÇAS** → devolva os achados ao MESMO dev, na mesma branch. Máximo de
      **2 ciclos**; persistindo, PARE e escale ao Tech Lead com o diagnóstico.
    - **APROVADO** → squash-merge na main, `git push`, marque o card **Done** no topo do arquivo
