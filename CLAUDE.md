@@ -50,5 +50,4 @@ que escreve o código. Cards claros = menos retrabalho = menos tokens.
 ## Cards
 
 Padrão: `docs/cards/` (arquivo por card) + `docs/plan/milestones.md`, versionados no repositório
-do produto — sem custo de MCP. Linear é opcional; carregue `mcp__linear__*` via ToolSearch só
-quando o PM pedir sincronização explícita, e em lote.
+do produto — sem custo de MCP e sem dependência de ferramenta externa de tracking.

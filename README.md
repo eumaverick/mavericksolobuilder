@@ -17,12 +17,12 @@ custo de tokens otimizado e qualidade consistente. Para quem tem ideias de produ
 ## Como funciona (a esteira)
 
 **Planejar:** o Tech Lead (Opus) recebe o briefing → fatia em **milestones testáveis pelo PM** →
-cria cards no Linear, cada um como **pacote de contexto autossuficiente** (arquivos exatos,
-convenções, contratos), ordenados **backend antes de frontend**.
+cria cards locais em `docs/cards/`, cada um como **pacote de contexto autossuficiente** (arquivos
+exatos, convenções, contratos), ordenados **backend antes de frontend**.
 
 **Executar (por card, um de cada vez):** branch → dev do nível certo implementa (lendo SÓ o card +
 LEARNINGS + arquivos listados) → testes verdes + evidência → PR → **code-reviewer aprova** →
-squash-merge na main + `git push` → card Done no Linear → próximo card.
+squash-merge na main + `git push` → card Done em `docs/cards/` → próximo card.
 
 **Validar (por milestone):** com UI → roteiro de teste passo a passo para o PM; sem UI → suíte de
 testes de API com relatório **100%**. O Tech Lead cura o `docs/LEARNINGS.md` (memória evolutiva)
@@ -38,12 +38,8 @@ os agentes.
 
 ## Instalação (uma vez)
 ```bash
-# 1) Instalar o método globalmente (fica disponível em qualquer projeto)
+# Instalar o método globalmente (fica disponível em qualquer projeto)
 cd ~/Desktop/Project/mavericksolobuilder && ./install.sh
-
-# 2) Conectar o Linear (uma vez)
-claude mcp add --transport http --scope user linear https://mcp.linear.app/mcp
-# depois, numa sessão: /mcp -> linear -> autenticar (OAuth)
 ```
 Após o `install.sh`, abra o Claude Code em QUALQUER pasta de projeto e os comandos já existem.
 
@@ -68,6 +64,6 @@ Edite os arquivos deste repositório, rode `./install.sh` de novo e faça commit
 
 ## Templates
 - `templates/CLAUDE.product.md` — memória viva do produto (git, milestones, DS, convenções)
-- `templates/task-pack.md` — pacote de contexto (corpo de todo card do Linear)
+- `templates/task-pack.md` — pacote de contexto (corpo de todo card local em `docs/cards/`)
 - `templates/handoff-api.md` — contrato backend → frontend (`docs/handoffs/`)
 - `templates/LEARNINGS.md` — memória evolutiva dos agentes (`docs/LEARNINGS.md`)
