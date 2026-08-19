@@ -57,9 +57,8 @@ lições recorrentes do docs/LEARNINGS.md a cada milestone.>
 <Como provar que uma mudança funciona, sem ler código — screenshot, teste, request de exemplo.>
 
 ## Cards
-- Cards: `docs/cards/` · Milestones: `docs/plan/milestones.md`
+- Cards: `docs/cards/` · Milestones: `docs/plan/milestones.md` · Pendências não-dev: `docs/plan/pendencias.md`
 - Etiquetas de complexidade: `junior`, `pleno`, `senior` · Milestone em todo card
-- Linear (opcional, só se sincronizado a pedido do PM): projeto **<nome>** (ID: `<linear-project-id>`)
 
 ## Decisões de arquitetura
 <Registre aqui decisões técnicas duradouras, com data e motivo.>

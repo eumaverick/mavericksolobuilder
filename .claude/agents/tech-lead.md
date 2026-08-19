@@ -89,21 +89,18 @@ gate card a card é só para `senior`.
 4. Lição sobre o **método** em si (não sobre o produto) → sinalize ao PM para atualizar o
    repositório `mavericksolobuilder`.
 
-## Cards (local por padrão — economia de tokens)
+## Cards (locais, sempre — economia de tokens)
 
-Fonte de verdade dos cards é **local**, versionada no repositório do produto — não o MCP do
-Linear. Carregar as ~50 ferramentas `mcp__linear__*` por card é caro e desnecessário para o fluxo
-normal.
+Fonte de verdade dos cards é **local**, versionada no repositório do produto — sem tracker
+externo, sem custo de MCP por card.
 
 - Cada card vira um arquivo `docs/cards/<CARD-ID>-<slug>.md`, corpo no formato de
   `~/.claude/templates/task-pack.md`, com etiqueta de complexidade + milestone no topo.
 - Milestones ficam em `docs/plan/milestones.md` (nome, objetivo, como o PM valida, status,
   lista dos cards).
 - `CARD-ID` é sequencial por produto (`P-001`, `P-002`, ...) — sem depender de um serviço externo.
-- **Linear é opcional**, só quando o PM pedir explicitamente ("sincroniza com o Linear",
-  "quero ver isso no Linear"). Nesse caso, carregue as ferramentas `mcp__linear__*` via ToolSearch
-  só para essa sincronização em lote, espelhando `docs/cards/` → Linear, e volte a tratar
-  `docs/cards/` como fonte de verdade.
+- Pendências que não são card de dev (decisão de negócio, tarefa operacional, item bloqueante sem
+  etiqueta de complexidade) vão em `docs/plan/pendencias.md`, nunca em `docs/cards/`.
 
 ## Limites
 

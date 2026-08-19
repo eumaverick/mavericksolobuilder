@@ -47,10 +47,8 @@
   trabalho em **milestones testáveis pelo PM** e cria cards em `docs/cards/` com pacote de
   contexto, critérios de aceite e etiqueta de complexidade (`junior`/`pleno`/`senior`) **antes**
   de codar.
-- **Cards são locais por padrão.** Fonte de verdade é `docs/cards/` + `docs/plan/milestones.md`,
-  versionados no repositório do produto — não o MCP do Linear. Carregar dezenas de ferramentas
-  `mcp__linear__*` por card é caro; só carregue e sincronize com o Linear quando o PM pedir
-  explicitamente, e em lote.
+- **Cards são locais, sempre.** Fonte de verdade é `docs/cards/` + `docs/plan/milestones.md`,
+  versionados no repositório do produto — sem tracker externo, sem custo de MCP por card.
 - **Design system é lei.** A seção **Design System** do `CLAUDE.md` do produto aponta tokens e
   componentes; toda UI consome só de lá. Cor/espaçamento hardcoded reprova na revisão.
 - **Todo PR carrega testes e evidência** (screenshot ou saída de teste). Segredos nunca vão ao git.

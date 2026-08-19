@@ -25,7 +25,7 @@ Siga este roteiro:
    `.env`/segredos no `.gitignore`, faça o primeiro commit e push. **GitHub é a fonte de verdade
    desde o dia 0** — registre a URL do repositório na seção Git do `CLAUDE.md`.
 6. **Crie a estrutura de planejamento local:** `docs/cards/` e `docs/plan/milestones.md` — fonte
-   de verdade dos cards deste produto (Linear é opcional; só sincronize se o PM pedir).
+   de verdade dos cards deste produto.
 7. **Milestones + cards iniciais** (via Tech Lead): fatiar em milestones testáveis pelo PM,
    ordenar backend → frontend (com handoffs), e criar os cards em `docs/cards/` com pacote de
    contexto, critérios de aceite e etiqueta de complexidade. Se o produto tem UI, o primeiro card
