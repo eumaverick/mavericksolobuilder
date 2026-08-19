@@ -39,3 +39,8 @@ Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar 
 
 Regras fixas: um card por vez · merge só após APROVADO do code-reviewer · push imediato após cada
 merge · qualquer erro sem solução clara → PARE e reporte ao PM em vez de improvisar.
+
+> **Caveman:** se o modo caveman estiver ativo nesta sessão, inclua no prompt de CADA subagente
+> acionado (passos 2b, 2c e 3a: `dev-*`, `code-reviewer`, `tech-lead`): "modo caveman ativo:
+> <nível> — comprima sua resposta e raciocínio de acordo." Ele não herda sozinho (lei do
+> `~/.claude/CLAUDE.md`).
