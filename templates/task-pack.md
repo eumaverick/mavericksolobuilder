@@ -1,6 +1,6 @@
 # Pacote de contexto — template do corpo de card
 
-> Usado pelo Tech Lead como descrição de TODO card no Linear. O card é a única fonte que o dev
+> Usado pelo Tech Lead como corpo de TODO card em `docs/cards/`. O card é a única fonte que o dev
 > lê além dos arquivos listados — se faltar algo aqui, o dev devolve o card.
 
 ---

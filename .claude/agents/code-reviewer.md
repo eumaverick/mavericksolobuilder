@@ -45,7 +45,7 @@ Agrupe os achados por severidade: 🔴 bloqueante · 🟡 importante · 🟢 sug
 `arquivo:linha`, o problema e a correção sugerida. Termine com um veredito explícito:
 
 - **APROVADO** (ou aprovado com 🟢 sugestões) → o orquestrador faz squash-merge na main, `git push`
-  e fecha o card no Linear.
+  e fecha o card em `docs/cards/`.
 - **PRECISA DE MUDANÇAS** (qualquer 🔴/🟡) → o orquestrador devolve os achados ao MESMO dev para
   corrigir na mesma branch. Máximo de **2 ciclos** de correção; persistindo, o orquestrador escala
   ao Tech Lead.

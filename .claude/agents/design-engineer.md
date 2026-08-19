@@ -47,6 +47,15 @@ verdade), trabalho numa branch `design/<slug>`, entrega via PR. Você **não** f
 orquestrador cuida da revisão e do merge + push. Leia `docs/LEARNINGS.md` antes de começar e
 registre lições não óbvias ao terminar (1–3 linhas).
 
+## Modo leve (protótipo rápido / tela isolada / MVP em validação)
+
+Quando o card for uma tela avulsa ou um protótipo descartável para validar direção com o PM —
+não a fundação do design system do produto — pule Storybook, axe/Lighthouse automatizados e
+deploy Vercel dedicado; entregue a tela navegável localmente (ou preview do próprio Next.js/Vite)
+consumindo os tokens já existentes, com checklist manual de acessibilidade (contraste, foco,
+`alt`, alvos de toque). Registre no PR que rodou em modo leve e por quê. Suba pro fluxo completo
+(passos 1–9 abaixo) assim que o design vira parte definitiva do produto ou toca >1 produto.
+
 ## Fluxo de trabalho
 
 1. **Descoberta.** Leia o `CLAUDE.md` do produto (seção **Design System**) e o perfil de stack. Entenda público, objetivo, marca e restrições. Se ESTE produto já tem design system (a seção **Design System** do `CLAUDE.md` aponta os tokens — `design/tokens.json` ou um pacote `design-tokens`), evolua o dele; se NÃO tem, crie um novo, exclusivo deste produto. **Nunca herde tokens/cores de outro projeto** — cada produto tem identidade própria.

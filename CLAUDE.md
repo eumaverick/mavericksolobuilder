@@ -12,13 +12,13 @@ Repositório-fonte: https://github.com/eumaverick/mavericksolobuilder · instala
 - `/design <briefing>` — cria design system / protótipos.
 - `/review <PR ou vazio>` — revisa projeto / código / PR.
 
-Interno: `/implement <CARD-ID>` dispara o desenvolvedor certo para um card do Linear.
+Interno: `/implement <CARD-ID>` dispara o desenvolvedor certo para um card em `docs/cards/`.
 
 ## O fluxo
 
 1. Você escreve um briefing num dos comandos.
-2. O **Tech Lead** (Opus) esclarece dúvidas, desenha a solução e cria **cards no Linear** com
-   critérios de aceite + etiqueta de complexidade.
+2. O **Tech Lead** (Opus) esclarece dúvidas, desenha a solução e cria **cards em `docs/cards/`**
+   (locais, versionados no produto) com critérios de aceite + etiqueta de complexidade.
 3. **Gate híbrido:** 🟢 `junior` (Haiku) roda automático; 🟡 `pleno` (Sonnet) espera sua aprovação;
    🔴 `senior` (Opus) mostra o plano e espera aprovação.
 4. O dev implementa **um card por vez**, com testes e **PR com evidência visual**.
@@ -47,7 +47,8 @@ Após editar o método, rode `./install.sh` de novo (symlinks repropagam sozinho
 **Gaste o modelo caro pensando; o barato digitando.** O maior custo está em specs ruins, não no modelo
 que escreve o código. Cards claros = menos retrabalho = menos tokens.
 
-## Linear
+## Cards
 
-Cards via MCP oficial (`https://mcp.linear.app/mcp`). Reaproveite rascunhos renomeando-os para o produto,
-ou crie um projeto novo. Cada produto registra no seu próprio `CLAUDE.md` qual projeto do Linear usa.
+Padrão: `docs/cards/` (arquivo por card) + `docs/plan/milestones.md`, versionados no repositório
+do produto — sem custo de MCP. Linear é opcional; carregue `mcp__linear__*` via ToolSearch só
+quando o PM pedir sincronização explícita, e em lote.

@@ -4,11 +4,11 @@ argument-hint: <nome/número do milestone, ou vazio para o milestone em andament
 ---
 
 Execute a esteira do Maverick Solo Builder para o milestone: $ARGUMENTS
-(se vazio, o milestone em andamento registrado no `CLAUDE.md` do produto / Linear)
+(se vazio, o milestone em andamento registrado no `CLAUDE.md` do produto / `docs/plan/milestones.md`)
 
 Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar passos:
 
-1. **Sincronize.** `git checkout main && git pull`. Liste no Linear os cards restantes do
+1. **Sincronize.** `git checkout main && git pull`. Liste em `docs/cards/` os cards restantes do
    milestone, **na ordem definida pelo Tech Lead** (backend antes de frontend, dependências
    respeitadas).
 
@@ -20,7 +20,7 @@ Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar 
    c. **Revisão automática:** acione o `code-reviewer` (diff + critérios do card).
       - **PRECISA DE MUDANÇAS** → devolva os achados ao MESMO dev, na mesma branch. Máximo de
         **2 ciclos** de correção; persistindo, PARE e escale ao Tech Lead com o diagnóstico.
-      - **APROVADO** → squash-merge na main, `git push`, card **Done** no Linear.
+      - **APROVADO** → squash-merge na main, `git push`, marque o card **Done** em `docs/cards/`.
    d. Só então passe ao próximo card. PRs nunca se acumulam.
 
 3. **Fim do milestone:**

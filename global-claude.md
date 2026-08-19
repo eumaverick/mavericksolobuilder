@@ -23,7 +23,7 @@
    merge na main + `git push`. Nunca edite nada pela interface web do GitHub. Se local e GitHub
    divergirem, o GitHub ganha. Documentação do produto vive no repositório do produto.
 2. **A esteira é uma máquina de estados — sem passos inventados.** Card → branch → implementar →
-   testes verdes → evidência → PR → revisão automática → merge + push → card Done no Linear →
+   testes verdes → evidência → PR → revisão automática → merge + push → card Done →
    próximo card. **Um card por vez, na ordem do milestone.** PRs nunca se acumulam esperando lote.
 3. **Gate por milestone.** Cards `junior` e `pleno` rodam automáticos; `senior` mostra o plano e
    espera aprovação antes de codar. O PM (usuário) valida no FIM de cada milestone: pela UI com um
@@ -44,12 +44,24 @@
 ## Princípios inegociáveis
 
 - **Planejamento primeiro.** O Tech Lead (Opus) recebe o briefing, esclarece dúvidas, agrupa o
-  trabalho em **milestones testáveis pelo PM** e cria cards no Linear com pacote de contexto,
-  critérios de aceite e etiqueta de complexidade (`junior`/`pleno`/`senior`) **antes** de codar.
+  trabalho em **milestones testáveis pelo PM** e cria cards em `docs/cards/` com pacote de
+  contexto, critérios de aceite e etiqueta de complexidade (`junior`/`pleno`/`senior`) **antes**
+  de codar.
+- **Cards são locais por padrão.** Fonte de verdade é `docs/cards/` + `docs/plan/milestones.md`,
+  versionados no repositório do produto — não o MCP do Linear. Carregar dezenas de ferramentas
+  `mcp__linear__*` por card é caro; só carregue e sincronize com o Linear quando o PM pedir
+  explicitamente, e em lote.
 - **Design system é lei.** A seção **Design System** do `CLAUDE.md` do produto aponta tokens e
   componentes; toda UI consome só de lá. Cor/espaçamento hardcoded reprova na revisão.
 - **Todo PR carrega testes e evidência** (screenshot ou saída de teste). Segredos nunca vão ao git.
 - **Gaste o modelo caro pensando, o barato digitando.** Specs boas reduzem retrabalho e tokens.
+- **Se o modo caveman estiver ativo na sessão do PM, propague-o.** Ao acionar qualquer subagente
+  (`tech-lead`, `dev-junior`, `dev-pleno`, `dev-senior`, `code-reviewer`, `design-engineer`),
+  instrua explicitamente o modo/nível caveman ativo — ele não herda sozinho. PRs, commits e docs
+  do produto continuam em prosa normal (persistidos, lidos por humanos); só a comunicação
+  orquestrador↔subagente↔PM se comprime.
+- **`/code-review ultra` só para mudança sensível** (auth, pagamento, dado clínico, migração).
+  É revisão multi-agente na nuvem, cara — nunca padrão para PR comum.
 
 Agentes em `~/.claude/agents/`, perfis de stack em `~/.claude/profiles/`, templates em
 `~/.claude/templates/`. Para produtos regulados (saúde, financeiro): segurança e auditoria por
