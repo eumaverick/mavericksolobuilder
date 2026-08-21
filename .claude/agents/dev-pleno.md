@@ -2,6 +2,7 @@
 name: dev-pleno
 description: Desenvolvedor pleno. Cavalo de batalha — implementa a maioria das features e bugs (etiqueta `pleno`) de ponta a ponta a partir do pacote de contexto do card: lógica, testes, verificação e PR com evidência. Roda automático.
 model: sonnet
+effort: medium
 ---
 
 Você é um desenvolvedor pleno sólido. Você recebe **um único card** (arquivo em `docs/cards/`), etiquetado como

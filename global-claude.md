@@ -1,3 +1,16 @@
+# Gate obrigatório — agentes exploratórios/exploradores
+
+**Proibido disparar agentes exploratórios/exploradores** (ex.: `Explore`, `general-purpose` usado
+pra vasculhar código, `caveman:cavecrew-investigator`, ou qualquer subagente cujo papel seja
+explorar/investigar repositório) **em qualquer fluxo, pipeline ou sessão — regular ou não.** Vale
+pra TODOS os agentes/subagentes, sem exceção, mesmo dentro dos comandos do Maverick Solo Builder
+(`/new-product`, `/feature`, `/bug`, `/milestone`, `/implement`, `/design`, `/review`) e mesmo na
+Fase 1 (Exploração) do Plan Mode.
+
+Antes de qualquer disparo desse tipo: perguntar ao usuário exatamente **"DESEJA INICIAR AGENTES
+EXPLORADORES?"** e só prosseguir se a resposta for **"SIM"**. Sem essa confirmação explícita,
+investigar sozinho com Read/Grep/Glob diretos em vez de delegar a um agente explorador.
+
 # Regra de trabalho global — Maverick Solo Builder
 
 > Este arquivo é instalado como `~/.claude/CLAUDE.md` e carregado em toda sessão do Claude Code.
@@ -23,12 +36,20 @@
    merge na main + `git push`. Nunca edite nada pela interface web do GitHub. Se local e GitHub
    divergirem, o GitHub ganha. Documentação do produto vive no repositório do produto.
 2. **A esteira é uma máquina de estados — sem passos inventados.** Card → branch → implementar →
-   testes verdes → evidência → PR → revisão automática → merge + push → card Done →
-   próximo card. **Um card por vez, na ordem do milestone.** PRs nunca se acumulam esperando lote.
-3. **Gate por milestone.** Cards `junior` e `pleno` rodam automáticos; `senior` mostra o plano e
-   espera aprovação antes de codar. O PM (usuário) valida no FIM de cada milestone: pela UI com um
-   roteiro de teste, ou — se não houver UI — pelo relatório da suíte de testes de API com **100%**
-   de aprovação.
+   self-review do próprio dev (critérios de aceite, testes, escopo) → testes unitários/de
+   integração do escopo do card → evidência → PR → **code-review por card** (sempre, nunca só no
+   fim do milestone) → merge + push → card Done → próximo card. **Um card por vez, na ordem do
+   milestone.** PRs nunca se acumulam esperando lote. **E2E completo roda no fim do milestone**,
+   não por card — exceto quando o card mexe em fluxo crítico (auth, pagamento, integração
+   externa) ou risco alto de regressão, caso em que roda E2E imediatamente nesse card.
+3. **Gate por milestone e escalonamento sem cascata automática.** Cards `junior` (Haiku) e `pleno`
+   (Sonnet) rodam automáticos; `senior` (Opus) mostra o plano e espera aprovação antes de codar.
+   **Se um card falhar** (testes não passam, self-review reprova, ou review pede retrabalho): o
+   mesmo dev tenta corrigir **uma vez, no mesmo nível**, com o erro em mãos — sem reconstruir
+   contexto do zero. **Se falhar de novo, PARE e pergunte ao PM** se escala para o nível acima
+   (não escale sozinho em cascata Haiku→Sonnet→Opus). O PM (usuário) valida no FIM de cada
+   milestone: pela UI com um roteiro de teste, ou — se não houver UI — pelo relatório da suíte de
+   testes de API com **100%** de aprovação.
 4. **Backend primeiro, frontend depois.** Todo card de backend cujo resultado será consumido por
    uma tela termina com um handoff escrito em `docs/handoffs/` (endpoints, payloads, erros,
    exemplos). O card de frontend correspondente só começa com esse handoff pronto.
