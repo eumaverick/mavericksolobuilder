@@ -31,36 +31,31 @@ investigar sozinho com Read/Grep/Glob diretos em vez de delegar a um agente expl
 
 ## As 6 leis do método (valem para TODOS os agentes, sem exceção)
 
-1. **GitHub é a fonte de verdade; o repositório local é a oficina.** Todo trabalho acontece no
-   clone local. Antes de qualquer card: `git checkout main && git pull`. Todo card termina com
-   merge na main + `git push`. Nunca edite nada pela interface web do GitHub. Se local e GitHub
-   divergirem, o GitHub ganha. Documentação do produto vive no repositório do produto.
-2. **A esteira é uma máquina de estados — sem passos inventados.** Card → branch → implementar →
-   self-review do próprio dev (critérios de aceite, testes, escopo) → testes unitários/de
-   integração do escopo do card → evidência → PR → **code-review por card** (sempre, nunca só no
-   fim do milestone) → merge + push → card Done → próximo card. **Um card por vez, na ordem do
-   milestone.** PRs nunca se acumulam esperando lote. **E2E completo roda no fim do milestone**,
-   não por card — exceto quando o card mexe em fluxo crítico (auth, pagamento, integração
-   externa) ou risco alto de regressão, caso em que roda E2E imediatamente nesse card.
+1. **`main` é a versão aprovada; a branch do milestone é o backup de trabalho.** Todo trabalho
+   começa no clone local com `git checkout main && git pull`. Abra `milestone/<id>-<slug>`, publique
+   a branch no início e antes da homologação. Só após aprovação do PM faça PR, merge em `main` e
+   `git push`. Nunca edite pela interface web do GitHub.
+2. **A esteira trabalha por milestone, não por cerimônia de card.** Branch do milestone → cards
+   por dependência → self-review + testes focados por card → testes integrados/E2E → revisão
+   consolidada → preview → validação do PM → PR/merge/push. Cards mecânicos não abrem PR nem têm
+   revisão isolada. Checkpoint técnico antecipado é obrigatório para schema/migração, auth,
+   pagamento, PII/dados regulados, integração externa, contrato que desbloqueia frontend ou
+   alteração arquitetural. E2E antecipado só para esses riscos.
 3. **Gate por milestone e escalonamento sem cascata automática.** Cards `junior` (Haiku) e `pleno`
-   (Sonnet) rodam automáticos; `senior` (Opus) mostra o plano e espera aprovação antes de codar.
-   **Se um card falhar** (testes não passam, self-review reprova, ou review pede retrabalho): o
-   mesmo dev tenta corrigir **uma vez, no mesmo nível**, com o erro em mãos — sem reconstruir
-   contexto do zero. **Se falhar de novo, PARE e pergunte ao PM** se escala para o nível acima
-   (não escale sozinho em cascata Haiku→Sonnet→Opus). O PM (usuário) valida no FIM de cada
-   milestone: pela UI com um roteiro de teste, ou — se não houver UI — pelo relatório da suíte de
-   testes de API com **100%** de aprovação.
+   (Sonnet) rodam automáticos; `senior` (Opus) mostra plano curto e espera aprovação antes de
+   codar. Se testes, self-review ou checkpoint falharem, o mesmo dev corrige uma vez; na segunda,
+   PARE e peça ao PM autorização para escalar. O PM valida no fim do milestone pela UI/preview ou
+   pelo relatório de API 100% verde.
 4. **Backend primeiro, frontend depois.** Todo card de backend cujo resultado será consumido por
    uma tela termina com um handoff escrito em `docs/handoffs/` (endpoints, payloads, erros,
    exemplos). O card de frontend correspondente só começa com esse handoff pronto.
-5. **Contexto empacotado, não explorado.** O Tech Lead escreve cada card como um pacote
-   autossuficiente (arquivos exatos, convenções relevantes, contratos, comandos). O dev lê o
-   pacote, o `docs/LEARNINGS.md` e os arquivos listados — **não** o repositório inteiro. Pacote
-   insuficiente = devolver o card ao Tech Lead com a dúvida, não sair explorando.
-6. **Memória evolutiva.** Todo produto tem `docs/LEARNINGS.md`. O dev lê antes de codar e registra
-   1–3 linhas ao terminar (só lição não óbvia). O Tech Lead cura o arquivo a cada fim de
-   milestone: promove lições recorrentes às Convenções do `CLAUDE.md` do produto e apaga o que
-   promoveu.
+5. **Contexto em duas camadas, não redundante.** O Tech Lead cria um Brief do Milestone com
+   contratos, convenções e comandos comuns; cada card contém só objetivo, arquivos, delta técnico,
+   dependências e verificação. O dev lê o brief, o card e os arquivos listados — nunca o repo
+   inteiro. Lacuna que muda a solução = devolver ao Tech Lead.
+6. **Memória evolutiva, escrita em lote.** Todo produto tem `docs/LEARNINGS.md`. O dev consulta o
+   arquivo e reporta uma lição não óbvia no handoff, sem editá-lo por padrão. No fim do milestone o
+   Tech Lead seleciona, promove regras recorrentes ao `CLAUDE.md` e atualiza o arquivo uma vez.
 
 ## Princípios inegociáveis
 
@@ -72,7 +67,8 @@ investigar sozinho com Read/Grep/Glob diretos em vez de delegar a um agente expl
   versionados no repositório do produto — sem tracker externo, sem custo de MCP por card.
 - **Design system é lei.** A seção **Design System** do `CLAUDE.md` do produto aponta tokens e
   componentes; toda UI consome só de lá. Cor/espaçamento hardcoded reprova na revisão.
-- **Todo PR carrega testes e evidência** (screenshot ou saída de teste). Segredos nunca vão ao git.
+- **Toda branch de milestone carrega testes e evidência consolidados** (screenshot ou saída de
+  teste). Segredos nunca vão ao git.
 - **Gaste o modelo caro pensando, o barato digitando.** Specs boas reduzem retrabalho e tokens.
 - **Se o modo caveman estiver ativo na sessão do PM, propague-o.** Ao acionar qualquer subagente
   (`tech-lead`, `dev-junior`, `dev-pleno`, `dev-senior`, `code-reviewer`, `design-engineer`),
@@ -81,6 +77,13 @@ investigar sozinho com Read/Grep/Glob diretos em vez de delegar a um agente expl
   orquestrador↔subagente↔PM se comprime.
 - **`/code-review ultra` só para mudança sensível** (auth, pagamento, dado clínico, migração).
   É revisão multi-agente na nuvem, cara — nunca padrão para PR comum.
+
+## Ambientes e publicação
+
+- **GitHub não é deploy:** branch remota é backup/PR; `main` é o histórico aprovado.
+- **Vercel preview é homologação:** configure preview para `milestone/*` ou faça deploy manual ao
+  fim do milestone; preview por card não é necessário.
+- **Vercel produção acompanha `main`:** somente depois da aprovação funcional explícita do PM.
 
 Agentes em `~/.claude/agents/`, perfis de stack em `~/.claude/profiles/`, templates em
 `~/.claude/templates/`. Para produtos regulados (saúde, financeiro): segurança e auditoria por

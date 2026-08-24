@@ -17,12 +17,12 @@ Roteiro:
    passos para reproduzir, comportamento esperado vs. atual, arquivos prováveis, critérios de
    aceite (incluindo **"teste de regressão que falha antes e passa depois"**) e etiqueta de
    complexidade.
-3. **Esteira:** `junior`/`pleno` → dispare imediatamente via `/implement` (dev → revisão
-   automática → merge + push → card Done em `docs/cards/`). `senior` → o dev-senior apresenta o
-   plano e espera a aprovação do PM antes de codar.
-4. **Resuma para o PM:** diagnóstico em linguagem de negócio, o que foi corrigido, link do PR e a
-   evidência (teste de regressão passando). Se a correção merecer registro, o dev adiciona a lição
-   em `docs/LEARNINGS.md`.
+3. **Esteira:** bug isolado de baixo risco pode rodar via `/implement` na branch do milestone;
+   correção urgente/crítica abre um milestone corretivo de um card. Schema, auth, pagamento, dados
+   sensíveis e integrações exigem checkpoint do reviewer antes da homologação. O `senior` apresenta
+   plano e espera aprovação antes de codar.
+4. **Resuma para o PM:** diagnóstico, o que foi corrigido e a evidência do teste de regressão. A
+   PR, deploy e atualização de `LEARNINGS.md` ocorrem no fechamento aprovado do milestone.
 
 > **Caveman:** se o modo caveman estiver ativo nesta sessão, inclua no prompt de CADA subagente
 > acionado (passos 1 e 3: `tech-lead`, `dev-*`, `code-reviewer` via `/implement`): "modo caveman

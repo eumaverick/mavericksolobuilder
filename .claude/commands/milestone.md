@@ -1,5 +1,5 @@
 ---
-description: Executa a esteira — implementa em ordem todos os cards restantes do milestone, com revisão e merge automáticos, e para na validação do PM.
+description: Executa um milestone em uma branch única — testes por card, revisão consolidada, preview e validação do PM antes de merge/deploy.
 argument-hint: <nome/número do milestone, ou vazio para o milestone em andamento>
 ---
 
@@ -8,39 +8,40 @@ Execute a esteira do Maverick Solo Builder para o milestone: $ARGUMENTS
 
 Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar passos:
 
-1. **Sincronize.** `git checkout main && git pull`. Liste em `docs/cards/` os cards restantes do
-   milestone, **na ordem definida pelo Tech Lead** (backend antes de frontend, dependências
-   respeitadas).
+1. **Sincronize e prepare o lote.** `git checkout main && git pull`; leia o Brief do Milestone,
+   liste cards restantes na ordem de dependência e crie `milestone/<id>-<slug>`. Faça o primeiro
+   push da branch como backup, sem abrir PR.
 
-2. **Para cada card, EM SEQUÊNCIA (nunca em paralelo), rode o ciclo completo:**
-   a. **Gate:** `junior`/`pleno` → prossiga direto. `senior` → o `dev-senior` produz o plano em
-      linguagem de PM e **PARE para aprovação do usuário**; aprovado, prossiga.
-   b. **Implementação:** acione o subagente do nível da etiqueta (`dev-junior`/`dev-pleno`/
-      `dev-senior`). Ele entrega branch + PR + evidência e para.
-   c. **Revisão automática:** acione o `code-reviewer` (diff + critérios do card).
-      - **PRECISA DE MUDANÇAS** → devolva os achados ao MESMO dev, na mesma branch. Máximo de
-        **2 ciclos** de correção; persistindo, PARE e escale ao Tech Lead com o diagnóstico.
-      - **APROVADO** → squash-merge na main, `git push`, marque o card **Done** em `docs/cards/`.
-   d. Só então passe ao próximo card. PRs nunca se acumulam.
+2. **Implemente os cards.** Para cada card dependente:
+   a. `junior`/`pleno` seguem automaticamente; `senior` apresenta o plano curto e para pela
+      aprovação do PM.
+   b. O dev implementa, faz self-review, roda somente os testes/lint definidos no card, registra
+      evidência local e faz commit na branch do milestone. A resposta ao orquestrador é curta:
+      `feito | arquivos | testes | bloqueio/lição`.
+   c. Marque o card como implementado. Não crie PR, não faça merge e não chame reviewer ainda.
+   d. **Checkpoint obrigatório:** se o card tocar schema/migração, auth, pagamento, PII/dado
+      regulado, integração externa, arquitetura ou contrato que desbloqueia outro card, acione
+      `code-reviewer` antes do dependente. Achado bloqueante/importante volta ao mesmo dev; duas
+      falhas → pare e escale ao PM.
+   e. Paralelize somente cards sem dependência e sem arquivos/contratos em comum, em worktrees
+      isolados; se houver dúvida, execute em sequência.
 
-3. **Fim do milestone:**
-   a. Acione o `tech-lead` para a **curadoria de aprendizados**: promover lições recorrentes do
-      `docs/LEARNINGS.md` às Convenções do `CLAUDE.md` e limpar o arquivo. Atualizar a seção
-      Milestones do `CLAUDE.md` (status) e commitá-la na main + push.
-   b. **Prepare a validação do PM:**
-      - Milestone **com UI** → suba o app/preview e entregue um roteiro de teste passo a passo em
-        linguagem de negócio ("abra X, clique Y, deve acontecer Z") com a URL.
-      - Milestone **sem UI** → rode a suíte de testes de API e apresente o relatório; a entrega só
-        vale com **100% de aprovação** (se não estiver, volte ao passo 2 com um card de correção).
+3. **Feche tecnicamente o milestone.** Rode testes integrados, build/lint/typecheck e E2E conforme
+   o brief; reúna uma evidência suficiente por fluxo. Acione `code-reviewer` uma vez para o diff
+   completo contra `main`, o brief e todos os cards. Corrija achados 🔴/🟡 na mesma branch e repita
+   somente a verificação afetada. Faça push da branch quando estiver pronta para homologação.
 
-4. **PARE e entregue ao PM:** o que o milestone construiu (linguagem de negócio), como testar,
-   evidências (screenshots/relatório de testes), cards fechados com links de PR, e o que vem no
-   próximo milestone.
+4. **Homologue com o PM.** Para UI, gere/aguarde preview da Vercel da branch `milestone/*` e
+   entregue URL + roteiro em linguagem de negócio. Sem UI, entregue relatório da suíte de API
+   100% verde. Se reprovar, corrija na mesma branch e repita testes/revisão proporcional ao risco.
 
-Regras fixas: um card por vez · merge só após APROVADO do code-reviewer · push imediato após cada
-merge · qualquer erro sem solução clara → PARE e reporte ao PM em vez de improvisar.
+5. **Publique somente após aprovação explícita.** Crie uma PR consolidada, squash-merge em `main`,
+   `git push` e confirme o deploy de produção. Então marque cards como Done, acione o Tech Lead
+   para curar `LEARNINGS.md` e atualizar status do milestone em um único commit/push.
+
+6. **Resuma ao PM:** entrega, URL/roteiro, evidências, PR consolidada e próximo milestone.
 
 > **Caveman:** se o modo caveman estiver ativo nesta sessão, inclua no prompt de CADA subagente
-> acionado (passos 2b, 2c e 3a: `dev-*`, `code-reviewer`, `tech-lead`): "modo caveman ativo:
+> acionado (passos 2–5: `dev-*`, `code-reviewer`, `tech-lead`): "modo caveman ativo:
 > <nível> — comprima sua resposta e raciocínio de acordo." Ele não herda sozinho (lei do
 > `~/.claude/CLAUDE.md`).

@@ -1,7 +1,7 @@
 # Handoff de API — <feature>
 
-> Escrito pelo dev de BACKEND ao concluir o card, ANTES de abrir o PR. É o contrato que o dev de
-> FRONTEND vai seguir para plugar as telas — ele não vai ler o código do backend, só este arquivo.
+> Escrito pelo dev de BACKEND ao concluir o card, ANTES de liberar o dependente. É o contrato que o
+> dev de FRONTEND vai seguir para plugar as telas — ele não vai ler o código do backend, só este arquivo.
 > Salve em `docs/handoffs/<feature>.md`. Exemplos devem ser REAIS (testados via curl), não teóricos.
 
 ## Visão geral

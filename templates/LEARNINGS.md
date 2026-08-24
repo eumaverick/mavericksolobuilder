@@ -1,8 +1,8 @@
 # Aprendizados — <NOME DO PRODUTO>
 
-> Memória evolutiva dos agentes deste produto. **Todo dev lê este arquivo antes de codar** e
-> registra 1–3 linhas ao terminar um card — SOMENTE lições não óbvias (erro cometido → regra;
-> descoberta sobre o projeto que não está no CLAUDE.md). Nada de diário de bordo.
+> Memória evolutiva dos agentes deste produto. Todo dev lê este arquivo antes de codar e, se
+> descobrir algo não óbvio, relata uma linha no handoff do card. O Tech Lead decide o que entra
+> aqui ao fim do milestone; nada de diário de bordo ou edição concorrente por card.
 >
 > **Curadoria (Tech Lead, a cada fim de milestone):** lição recorrente ou essencial → vira regra
 > curta nas Convenções do `CLAUDE.md` e SAI daqui; entrada obsoleta → apagar. Manter ≤ ~40 linhas.

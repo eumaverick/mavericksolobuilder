@@ -17,12 +17,14 @@ custo de tokens otimizado e qualidade consistente. Para quem tem ideias de produ
 ## Como funciona (a esteira)
 
 **Planejar:** o Tech Lead (Opus) recebe o briefing → fatia em **milestones testáveis pelo PM** →
-cria cards locais em `docs/cards/`, cada um como **pacote de contexto autossuficiente** (arquivos
-exatos, convenções, contratos), ordenados **backend antes de frontend**.
+cria um Brief do Milestone (contexto comum) e cards locais concisos (delta, arquivos e critérios),
+ordenados **backend antes de frontend**.
 
-**Executar (por card, um de cada vez):** branch → dev do nível certo implementa (lendo SÓ o card +
-LEARNINGS + arquivos listados) → testes verdes + evidência → PR → **code-reviewer aprova** →
-squash-merge na main + `git push` → card Done em `docs/cards/` → próximo card.
+**Executar (por milestone):** uma branch `milestone/*` → dev do nível certo implementa cards
+dependentes com testes focados e commits locais → testes integrados/E2E + evidência →
+**code-reviewer revisa o diff consolidado** → preview na Vercel → teste funcional do PM → PR,
+squash-merge na main e `git push`. Checkpoints antecipados só para risco alto ou contratos que
+desbloqueiam outros cards.
 
 **Validar (por milestone):** com UI → roteiro de teste passo a passo para o PM; sem UI → suíte de
 testes de API com relatório **100%**. O Tech Lead cura o `docs/LEARNINGS.md` (memória evolutiva)
@@ -54,12 +56,12 @@ Edite os arquivos deste repositório, rode `./install.sh` de novo e faça commit
 | Dev Pleno | Sonnet | Maioria das features/bugs (automático) |
 | Dev Sênior | Opus | Arquitetura e risco (plano aprovado antes) |
 | Design Engineer | Sonnet | Design system e protótipos |
-| Code Reviewer | Sonnet | Portão automático de todo PR |
+| Code Reviewer | Sonnet | Revisão consolidada do milestone e checkpoints de risco |
 
 ## Onde a economia de tokens acontece
-- O Tech Lead lê o projeto UMA vez e empacota o contexto no card; os devs **não** exploram o repo.
-- Cards fatiados para caber em `junior`/`pleno` (modelos baratos digitam, o caro pensa).
-- O reviewer lê só o diff + card, não o projeto.
+- O Tech Lead cria um brief comum do milestone; cards carregam só o delta e devs não exploram o repo.
+- Cards fatiados para caber em `junior`/`pleno` (modelos baratos executam, o caro decide risco).
+- O reviewer lê um diff consolidado + brief/cards, não o projeto nem cada micro-PR.
 - `CLAUDE.md` do produto curto (≤ ~150 linhas); estratégia longa fica em `docs/` sob demanda.
 
 ## Templates

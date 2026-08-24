@@ -30,6 +30,6 @@ Siga este roteiro:
    ordenar backend → frontend (com handoffs), e criar os cards em `docs/cards/` com pacote de
    contexto, critérios de aceite e etiqueta de complexidade. Se o produto tem UI, o primeiro card
    é o design system (`design-engineer`).
-8. **Resuma e inicie a esteira:** apresente os milestones e como o PM validará cada um; em
-   seguida sugira `/milestone` para executar o primeiro (cards `junior`/`pleno` rodam automáticos;
-   `senior` para na aprovação do plano).
+8. **Resuma e inicie a esteira:** apresente milestones, como o PM valida e a separação de
+   ambientes: `milestone/*` tem preview/homologação; `main` é produção. Sugira `/milestone` para
+   executar o primeiro (cards `junior`/`pleno` rodam automáticos; `senior` para no plano).

@@ -21,8 +21,9 @@ Interno: `/implement <CARD-ID>` dispara o desenvolvedor certo para um card em `d
    (locais, versionados no produto) com critérios de aceite + etiqueta de complexidade.
 3. **Gate híbrido:** 🟢 `junior` (Haiku) roda automático; 🟡 `pleno` (Sonnet) espera sua aprovação;
    🔴 `senior` (Opus) mostra o plano e espera aprovação.
-4. O dev implementa **um card por vez**, com testes e **PR com evidência visual**.
-5. Você revisa, aprova e o **deploy roda nos trilhos** (Vercel/Railway/EAS conforme a stack).
+4. O dev implementa cards na **branch do milestone**, com testes focados e commits locais.
+5. Ao final, há testes integrados, revisão consolidada, preview para homologação e aprovação do
+   PM; só então a PR é integrada em `main` e a produção é atualizada.
 
 ## Instalação global
 

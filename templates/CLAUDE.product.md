@@ -7,10 +7,13 @@
 ## Visão
 <O que é o produto e qual problema de negócio resolve.>
 
-## Git (fonte de verdade)
-- **Repositório (GitHub):** `<URL do repo — a fonte de verdade publicada>`
-- Protocolo: trabalho no clone local · `git pull` antes de todo card · todo card termina com
-  squash-merge na main + `git push` · nada é editado pela interface web do GitHub.
+## Git e ambientes
+- **Repositório (GitHub):** `<URL do repo>`
+- **Protocolo:** `main` = versão aprovada; `milestone/<id>-<slug>` = trabalho e backup remoto.
+  Sincronizar antes do milestone; push da branch no início e antes da homologação; PR/merge/push
+  em `main` só depois da aprovação funcional do PM. Nada é editado pela interface web.
+- **Preview/homologação:** `<Vercel URL ou procedimento; branch que dispara preview>`.
+- **Produção:** `<URL; somente main dispara deploy>`.
 
 ## Stack
 - Perfil: `<web-nextjs | backend-node | mobile-expo>`
@@ -41,7 +44,7 @@
 lições recorrentes do docs/LEARNINGS.md a cada milestone.>
 
 ## Memória e handoffs
-- **Aprendizados:** `docs/LEARNINGS.md` — todo dev lê antes de codar e registra ao terminar.
+- **Aprendizados:** `docs/LEARNINGS.md` — dev lê; Tech Lead atualiza uma vez no fim do milestone.
 - **Handoffs de API (backend → frontend):** `docs/handoffs/<feature>.md` — contrato que o dev de
   frontend segue para plugar as telas.
 
@@ -59,6 +62,7 @@ lições recorrentes do docs/LEARNINGS.md a cada milestone.>
 ## Cards
 - Cards: `docs/cards/` · Milestones: `docs/plan/milestones.md` · Pendências não-dev: `docs/plan/pendencias.md`
 - Etiquetas de complexidade: `junior`, `pleno`, `senior` · Milestone em todo card
+- Cada milestone também tem `docs/plan/<milestone>-brief.md`: contexto comum, contratos e comandos.
 
 ## Decisões de arquitetura
 <Registre aqui decisões técnicas duradouras, com data e motivo.>
