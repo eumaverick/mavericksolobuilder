@@ -19,7 +19,8 @@ Siga este roteiro:
    inicialize git. Os comandos/agentes do fluxo já são globais (`~/.claude/`) — não copie nada.
 3. **Monte o esqueleto** do projeto conforme o perfil de stack (estrutura mínima que roda).
 4. **Escreva o `CLAUDE.md` do produto** a partir de `~/.claude/templates/CLAUDE.product.md`
-   (visão, stack, convenções, comandos, milestones) e crie `docs/LEARNINGS.md`
+   (visão, stack, convenções, comandos — ≤ 150 linhas; status de milestones só em
+   `docs/plan/milestones.md`, decisões em `docs/decisoes.md`) e crie `docs/LEARNINGS.md`
    a partir de `~/.claude/templates/LEARNINGS.md`.
 5. **Publique no GitHub JÁ** (antes de qualquer card): crie o repositório privado, garanta
    `.env`/segredos no `.gitignore`, faça o primeiro commit e push. **GitHub é a fonte de verdade

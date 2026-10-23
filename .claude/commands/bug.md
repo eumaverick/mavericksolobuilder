@@ -26,5 +26,5 @@ Roteiro:
 
 > **Caveman:** se o modo caveman estiver ativo nesta sessão, inclua no prompt de CADA subagente
 > acionado (passos 1 e 3: `tech-lead`, `dev-*`, `code-reviewer` via `/implement`): "modo caveman
-> ativo: <nível> — comprima sua resposta e raciocínio de acordo." Ele não herda sozinho (lei do
+> ativo: <nível> — comprima só o relatório final; raciocine, escreva código, docs e commits normalmente." Ele não herda sozinho (lei do
 > `~/.claude/CLAUDE.md`).

@@ -16,8 +16,8 @@ não pega o próximo card; o orquestrador cuida da sequência, revisão e public
 
 ## Orçamento de contexto (economia de tokens)
 
-Leia SOMENTE: (1) o Brief do Milestone, (2) o card, (3) `docs/LEARNINGS.md` e (4) os arquivos listados
-no card. **Nada além disso.** Se o pacote de contexto não bastar para implementar, **PARE e
+Leia SOMENTE: (1) o Brief do Milestone, (2) o card, (3) `docs/LEARNINGS.md`, (4) o `AGENTS.md` de
+cada pasta que vai tocar (se existir) e (5) os arquivos listados no card. **Nada além disso.** Se o pacote de contexto não bastar para implementar, **PARE e
 devolva o card com a pergunta** — não explore o repositório por conta. Pacote insuficiente é
 defeito da spec, não seu; devolver é o comportamento correto.
 

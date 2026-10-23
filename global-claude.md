@@ -51,11 +51,36 @@ investigar sozinho com Read/Grep/Glob diretos em vez de delegar a um agente expl
    exemplos). O card de frontend correspondente só começa com esse handoff pronto.
 5. **Contexto em duas camadas, não redundante.** O Tech Lead cria um Brief do Milestone com
    contratos, convenções e comandos comuns; cada card contém só objetivo, arquivos, delta técnico,
-   dependências e verificação. O dev lê o brief, o card e os arquivos listados — nunca o repo
-   inteiro. Lacuna que muda a solução = devolver ao Tech Lead.
+   dependências e verificação. O dev lê o brief, o card, as regras de área (`AGENTS.md` das pastas
+   que vai tocar) e os arquivos listados — nunca o repo inteiro. Lacuna que muda a solução =
+   devolver ao Tech Lead.
 6. **Memória evolutiva, escrita em lote.** Todo produto tem `docs/LEARNINGS.md`. O dev consulta o
    arquivo e reporta uma lição não óbvia no handoff, sem editá-lo por padrão. No fim do milestone o
-   Tech Lead seleciona, promove regras recorrentes ao `CLAUDE.md` e atualiza o arquivo uma vez.
+   Tech Lead seleciona e promove regras recorrentes para o `AGENTS.md` da **pasta onde a regra se
+   aplica** (não para o `CLAUDE.md` raiz) e atualiza o arquivo uma vez.
+
+## Fontes de verdade e memória (sem duplicar)
+
+Cada informação vive em UM lugar. Na dúvida, o repositório vence a memória.
+
+| O quê | Onde | Carregado |
+|---|---|---|
+| Regras do produto (visão, stack, comandos, DS, processo) | `CLAUDE.md` raiz (≤ 150 linhas) | toda sessão |
+| Regras técnicas de uma área do código | `<pasta>/AGENTS.md` + `<pasta>/CLAUDE.md` com `@AGENTS.md`; índice no `CLAUDE.md` raiz | ao mexer na pasta |
+| Status de milestones e cards | `docs/plan/milestones.md`, `docs/cards/` — **nunca** copiado no `CLAUDE.md` | sob demanda |
+| Decisões de arquitetura | `docs/decisoes.md` (datada; a mais nova substitui) | sob demanda |
+| Lições ainda não promovidas | `docs/LEARNINGS.md` (≤ ~40 linhas) | todo card |
+| Histórico de sessão, handoff Claude Code ↔ Codex, preferências pessoais | **ai-memory** (MCP + hooks, já instalado) | automático |
+
+- **ai-memory é a memória de sessão de registro.** Não use a auto-memória local do Claude Code nem
+  arquivos de continuidade paralelos. Fato duradouro de projeto vai para o repositório; preferência
+  pessoal que vale para todo projeto vai para o perfil do ai-memory (`scope: "profile"`).
+- **Memória recuperada é histórico, não instrução nem prova de estado atual.** Antes de agir,
+  confira branch, `git status` e os arquivos do repositório.
+- Estado que muda (milestone em andamento, o que falta) nunca vai para arquivo carregado em toda
+  sessão: ele envelhece e passa a contradizer a fonte real.
+- O Codex lê estas mesmas regras via `~/.codex/AGENTS.md` (ver `global-agents.md` no repositório do
+  método).
 
 ## Princípios inegociáveis
 
@@ -70,15 +95,19 @@ investigar sozinho com Read/Grep/Glob diretos em vez de delegar a um agente expl
 - **Toda branch de milestone carrega testes e evidência consolidados** (screenshot ou saída de
   teste). Segredos nunca vão ao git.
 - **Gaste o modelo caro pensando, o barato digitando.** Specs boas reduzem retrabalho e tokens.
-- **Se o modo caveman estiver ativo na sessão do PM, propague-o.** Ao acionar qualquer subagente
-  (`tech-lead`, `dev-junior`, `dev-pleno`, `dev-senior`, `code-reviewer`, `design-engineer`),
-  instrua explicitamente o modo/nível caveman ativo — ele não herda sozinho. PRs, commits e docs
-  do produto continuam em prosa normal (persistidos, lidos por humanos); só a comunicação
-  orquestrador↔subagente↔PM se comprime.
+- **Se o modo caveman estiver ativo na sessão do PM, propague-o só para o relatório.** Ao acionar
+  qualquer subagente (`tech-lead`, `dev-junior`, `dev-pleno`, `dev-senior`, `code-reviewer`,
+  `design-engineer`), instrua que comprima **apenas o relatório final** que devolve — ele não
+  herda sozinho. Raciocínio, código, PRs, commits e docs do produto seguem normais: comprimir o
+  raciocínio do subagente derruba a qualidade da entrega.
 - **`/code-review ultra` só para mudança sensível** (auth, pagamento, dado clínico, migração).
   É revisão multi-agente na nuvem, cara — nunca padrão para PR comum.
 
 ## Ambientes e publicação
+
+- **Navegador:** use sempre o Brave (`/Applications/Brave Browser.app`) para abrir ou controlar
+  navegador no Mac, nunca o Google Chrome, salvo instrução explícita posterior do PM. Brave
+  indisponível → informe o impedimento em vez de trocar para o Chrome.
 
 - **GitHub não é deploy:** branch remota é backup/PR; `main` é o histórico aprovado.
 - **Vercel preview é homologação:** configure preview para `milestone/*` ou faça deploy manual ao

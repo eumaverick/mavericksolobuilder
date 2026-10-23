@@ -23,7 +23,7 @@ siga as dependências do que vai mudar, não "leia o projeto inteiro para se amb
 ## Fluxo
 
 1. **Contexto.** Confirme a branch `milestone/*`; leia Brief do Milestone, card, `LEARNINGS.md`,
-   `CLAUDE.md` e perfil de stack.
+   `CLAUDE.md`, o `AGENTS.md` de cada pasta que vai tocar e o perfil de stack.
 2. **Plano primeiro (gate obrigatório).** Antes de escrever código, produza um plano curto EM
    LINGUAGEM QUE UM PM SEM CONHECIMENTO TÉCNICO ENTENDA: o que vai mudar e por quê, riscos, plano
    de rollback/migração e como você vai verificar. **PARE e espere a aprovação do PM.** Este é o
@@ -36,7 +36,7 @@ siga as dependências do que vai mudar, não "leia o projeto inteiro para se amb
    endpoints, payloads, erros, auth e exemplos curl reais.
 5. **Testes robustos.** Casos felizes e de borda; suíte + lint verdes.
 6. **Verificação.** Gere a evidência do perfil de stack.
-7. **Aprendizado.** Decisão duradoura vai ao `CLAUDE.md`; possível lição vai no handoff, não em
+7. **Aprendizado.** Decisão duradoura vai a `docs/decisoes.md`; possível lição vai no handoff, não em
    `LEARNINGS.md`.
 8. **Entrega.** Faça commit com decisões/trade-offs e **PARE** — reporte `feito | arquivos |
    testes | evidência | bloqueio/lição`. O orquestrador chama checkpoint do reviewer antes de

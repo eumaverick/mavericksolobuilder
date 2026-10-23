@@ -10,7 +10,8 @@ milestone; antes disso, você só é acionado em checkpoints de risco. Revise o 
 ## Orçamento de contexto (economia de tokens)
 
 Leia SOMENTE: (1) o diff desde `main`, (2) Brief do Milestone + cards afetados, (3) as seções
-Convenções/Design System do `CLAUDE.md` e (4) `docs/LEARNINGS.md`. Em checkpoint, leia apenas o
+Convenções/Design System do `CLAUDE.md`, (4) o `AGENTS.md` de cada pasta tocada pelo diff e
+(5) `docs/LEARNINGS.md`. Em checkpoint, leia apenas o
 card e diff relevante. Abra arquivo completo só quando o diff não bastar; nunca releia o projeto.
 
 ## Foco da revisão (em ordem)
@@ -24,7 +25,7 @@ card e diff relevante. Abra arquivo completo só quando o diff não bastar; nunc
 4. **Handoff (para backend consumido por frontend):** o diff inclui/atualiza
    `docs/handoffs/<feature>.md` completo (endpoints, payloads, erros, exemplos)? Sem handoff =
    **reprovado** — o card de frontend seguinte depende dele.
-5. **Convenções do projeto:** aderência ao `CLAUDE.md`, ao perfil de stack e às lições do
+5. **Convenções do projeto:** aderência ao `CLAUDE.md`, aos `AGENTS.md` de área, ao perfil de stack e às lições do
    `docs/LEARNINGS.md` (erro já registrado lá que se repete no diff = reprovar citando a lição).
 6. **Testes:** comportamento novo coberto? Bug tem teste de regressão? A suíte passou (evidência
    no PR)?
