@@ -30,8 +30,8 @@ Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar 
       isolados; se houver dúvida, execute em sequência.
 
 3. **Feche tecnicamente o milestone.** Rode testes integrados, build/lint/typecheck e E2E conforme
-   o brief; reúna uma evidência suficiente por fluxo. Acione `code-reviewer` uma vez para o diff
-   completo contra `main`, o brief e todos os cards. Corrija achados 🔴/🟡 na mesma branch e repita
+   o brief; reúna uma evidência suficiente por fluxo. Acione `code-reviewer` uma vez, **com `model: opus`**
+   (é o último filtro antes do PM), para o diff completo contra `main`, o brief e todos os cards. Corrija achados 🔴/🟡 na mesma branch e repita
    somente a verificação afetada. Faça push da branch quando estiver pronta para homologação.
 
 4. **Homologue com o PM.** Para UI, gere/aguarde preview da Vercel da branch `milestone/*` e
