@@ -10,7 +10,7 @@
 |---|---|---|---|---|
 | 8 | Tela fiel ao protótipo aprovado | Maior dor atual do PM; o M9 do Norton está codando telas agora | alto | planejado |
 | 5 | Protótipo antes de código, regra do método | Pré-requisito do 8: só há o que comparar se o protótipo cobre tudo | baixo | planejado |
-| 1 | Regra testável vira teste/lint | Tira peso do contexto e para a repetição dos mesmos bugs | médio | planejado |
+| 1 | Regra testável vira teste/lint | Tira peso do contexto e para a repetição dos mesmos bugs | médio | em PR (método); varredura do Norton pendente |
 | 3 | Modelo certo no lugar certo | Mudança de poucas linhas, efeito imediato no gate final | baixo | planejado |
 | 4 | Entendimento antes de codar | Barato; pega o erro mais caro (resolver o problema errado) | baixo | planejado |
 | 6 | Medir a acurácia por milestone | Sem número não dá para saber se 1–5 e 8 funcionaram | baixo | planejado |

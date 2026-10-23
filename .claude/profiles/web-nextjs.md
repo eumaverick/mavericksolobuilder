@@ -28,6 +28,15 @@ Depois inicialize o shadcn/ui: `pnpm dlx shadcn@latest init`.
 ## Deploy nos trilhos
 - **Vercel.** Conecte o repositório; cada PR gera um *preview deploy* automático e o merge na main publica em produção. Sem configuração manual de servidor.
 
+## Guardas prontas (regra testável vira teste ou lint)
+Catálogo inicial para o Tech Lead transformar lições recorrentes em card de guarda:
+- **Hex/`rgb()` fora dos tokens:** grep em `src/` (exceto `design/` e `build/`) que falha o teste.
+- **Palavras proibidas na copy:** lista em arquivo versionado; teste varre textos/componentes.
+- **Payload público sem campo sensível:** teste estrutural que percorre as respostas públicas e falha se
+  aparecer o campo X (gabarito, PII, token).
+- **`void promessa` em rota:** regra de lint (`no-floating-promises`) nas rotas e server actions.
+- **Consulta irmã:** teste que roda as consultas equivalentes com o mesmo filtro e compara contagens.
+
 ## Design system & acessibilidade
 - **Tokens (fonte de verdade):** tokens **DTCG** no caminho registrado na seção **Design System** do `CLAUDE.md` (default `design/tokens.json`; em monorepo, um pacote `design-tokens`); `pnpm tokens:build` (Style Dictionary) gera as variáveis CSS / tema do Tailwind num `build/` versionado. Componentes e telas consomem SÓ os tokens.
 - Componentes: **shadcn/ui** (sobre Radix, acessível) + Tailwind. Catálogo navegável no **Storybook**, publicado em URL fixa.

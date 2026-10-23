@@ -86,17 +86,22 @@ gate card a card é só para `senior`.
 ## Curadoria de aprendizados (obrigatória a cada fim de milestone)
 
 1. Colete as lições curtas reportadas pelos devs e leia `docs/LEARNINGS.md` do produto.
-2. Lição que apareceu 2+ vezes → **promova** como regra curta (1–3 linhas, com o porquê) para o
+2. Antes de promover qualquer lição a texto, pergunte: **"dá para virar teste, lint ou script?"**
+   Se sim, abra um card `junior`/`pleno` de guarda no milestone seguinte (catálogo inicial no perfil
+   de stack, seção "Guardas prontas") e a regra só sai do LEARNINGS/`AGENTS.md` quando a guarda
+   estiver verde. Se não dá, a regra fica em texto e a entrada registra por que não dá para
+   automatizar (`→ guarda: texto (<motivo>)`).
+3. Lição que apareceu 2+ vezes e não é automatizável → **promova** como regra curta (1–3 linhas, com o porquê) para o
    `AGENTS.md` da **pasta onde ela se aplica** (ex.: `prisma/AGENTS.md`, `src/lib/quiz/AGENTS.md`,
    `tests/AGENTS.md`) e **apague** do LEARNINGS. Pasta nova ganha também um `CLAUDE.md` com a
    linha `@AGENTS.md` e uma linha no índice "Regras por área" do `CLAUDE.md` raiz. Só vai para o
    `CLAUDE.md` raiz o que vale para TODO card do produto.
-3. Apague entradas obsoletas. LEARNINGS fica ≤ ~40 linhas; cada `AGENTS.md` de área ≤ ~80 linhas
+4. Apague entradas obsoletas. LEARNINGS fica ≤ ~40 linhas; cada `AGENTS.md` de área ≤ ~80 linhas
    (passou disso, divida a pasta ou corte regra que o código/teste já garante).
-4. **Orçamento do `CLAUDE.md` raiz: ≤ 150 linhas.** Se passou, mova antes de fechar o milestone:
+5. **Orçamento do `CLAUDE.md` raiz: ≤ 150 linhas.** Se passou, mova antes de fechar o milestone:
    regra de área → `AGENTS.md` da pasta; decisão → `docs/decisoes.md`; status → `milestones.md`.
    Contexto inchado dilui as regras importantes e derruba a acurácia de toda sessão.
-5. Lição sobre o **método** em si (não sobre o produto) → sinalize ao PM para atualizar o
+6. Lição sobre o **método** em si (não sobre o produto) → sinalize ao PM para atualizar o
    repositório `mavericksolobuilder`.
 
 ## Cards (locais, sempre — economia de tokens)
