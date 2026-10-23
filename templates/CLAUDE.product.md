@@ -20,11 +20,8 @@
 - <Detalhes específicos: libs principais, serviços externos, banco...>
 
 ## Milestones
-> Atualizado pelo Tech Lead. Todo milestone é validável pelo PM (UI ou suíte de API 100%).
-
-| # | Nome | Entrega (linguagem de negócio) | Como o PM valida | Status |
-|---|---|---|---|---|
-| M1 | <nome> | <o que fica testável> | <roteiro UI / comando da suíte de API> | <planejado/em andamento/validado> |
+Status, entregas e roteiro de validação vivem **só** em `docs/plan/milestones.md` — não copie a
+tabela aqui (status duplicado envelhece e contradiz a fonte real).
 
 ## Design System
 > **Fonte de verdade do design.** Tech Lead copia estes caminhos para dentro de todo card de UI.
@@ -40,8 +37,14 @@
 - **Acesso de stakeholders:** `<como logar — ex.: gate de login simples por usuário/senha>`.
 
 ## Convenções de código
-<Padrões a seguir: estrutura de pastas, nomenclatura, estilo. O Tech Lead promove para cá as
-lições recorrentes do docs/LEARNINGS.md a cada milestone.>
+<Só o que vale para TODO card: estrutura de pastas, nomenclatura, estilo, regras de segurança.>
+
+### Regras por área
+Antes de editar arquivos numa pasta abaixo, leia o `AGENTS.md` dela (o Claude Code carrega o
+`CLAUDE.md` da pasta sozinho; o Codex precisa ler o `AGENTS.md`). O Tech Lead promove para lá as
+lições recorrentes do `docs/LEARNINGS.md`.
+
+- `<pasta>/AGENTS.md` — <assunto em poucas palavras>
 
 ## Memória e handoffs
 - **Aprendizados:** `docs/LEARNINGS.md` — dev lê; Tech Lead atualiza uma vez no fim do milestone.
@@ -65,4 +68,5 @@ lições recorrentes do docs/LEARNINGS.md a cada milestone.>
 - Cada milestone também tem `docs/plan/<milestone>-brief.md`: contexto comum, contratos e comandos.
 
 ## Decisões de arquitetura
-<Registre aqui decisões técnicas duradouras, com data e motivo.>
+Registro datado em `docs/decisoes.md` (a mais nova substitui a anterior). Aqui, só as 3–5 decisões
+que todo card precisa respeitar, em uma linha cada.

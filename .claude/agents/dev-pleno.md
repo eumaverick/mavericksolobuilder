@@ -15,8 +15,8 @@ o próximo card; o orquestrador cuida de revisão, sequência e publicação.
 
 ## Orçamento de contexto (economia de tokens)
 
-Base de leitura: (1) Brief do Milestone, (2) card, (3) `docs/LEARNINGS.md` e (4) os arquivos
-listados no card. Explore além disso **apenas o estritamente necessário** (ex.: seguir um import
+Base de leitura: (1) Brief do Milestone, (2) card, (3) `docs/LEARNINGS.md`, (4) o `AGENTS.md` de
+cada pasta que vai tocar (se existir) e (5) os arquivos listados no card. Explore além disso **apenas o estritamente necessário** (ex.: seguir um import
 para entender uma interface) — nunca "leia o projeto para se ambientar". Se o pacote de contexto
 tiver uma lacuna que muda a solução, devolva o card ao Tech Lead com a pergunta em vez de assumir.
 

@@ -4,7 +4,7 @@ argument-hint: <nome/número do milestone, ou vazio para o milestone em andament
 ---
 
 Execute a esteira do Maverick Solo Builder para o milestone: $ARGUMENTS
-(se vazio, o milestone em andamento registrado no `CLAUDE.md` do produto / `docs/plan/milestones.md`)
+(se vazio, o milestone em andamento registrado em `docs/plan/milestones.md`)
 
 Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar passos:
 
@@ -43,5 +43,5 @@ Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar 
 
 > **Caveman:** se o modo caveman estiver ativo nesta sessão, inclua no prompt de CADA subagente
 > acionado (passos 2–5: `dev-*`, `code-reviewer`, `tech-lead`): "modo caveman ativo:
-> <nível> — comprima sua resposta e raciocínio de acordo." Ele não herda sozinho (lei do
+> <nível> — comprima só o relatório final; raciocine, escreva código, docs e commits normalmente." Ele não herda sozinho (lei do
 > `~/.claude/CLAUDE.md`).

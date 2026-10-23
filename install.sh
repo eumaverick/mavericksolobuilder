@@ -30,5 +30,28 @@ else
   echo "  aviso: ~/.claude/CLAUDE.md ja existe como arquivo real — copie o conteudo de global-claude.md manualmente"
 fi
 
+# Codex: ~/.codex/AGENTS.md recebe um bloco marcado (preâmbulo do Codex + regras globais).
+# O Codex não segue @import nem symlink de pasta, então o bloco é regerado a cada execução;
+# conteúdo fora dos marcadores (ex.: bloco do ai-memory) é preservado.
+CODEX_AGENTS="$HOME/.codex/AGENTS.md"
+if [ -d "$HOME/.codex" ]; then
+  BEGIN="<!-- BEGIN:maverick-solo-builder -->"
+  END="<!-- END:maverick-solo-builder -->"
+  tmp="$(mktemp)"
+  if [ -f "$CODEX_AGENTS" ]; then
+    sed "/^$BEGIN\$/,/^$END\$/d" "$CODEX_AGENTS" > "$tmp"
+  fi
+  {
+    echo "$BEGIN"
+    cat "$REPO/global-agents.md"
+    echo
+    cat "$REPO/global-claude.md"
+    echo "$END"
+    cat "$tmp"
+  } > "$CODEX_AGENTS"
+  rm -f "$tmp"
+  echo "  ok ~/.codex/AGENTS.md (bloco maverick-solo-builder regerado)"
+fi
+
 echo "OK Maverick Solo Builder instalado globalmente em $DEST"
 echo "   Agentes: $(ls -1 "$DEST/agents" | wc -l | tr -d ' ')  Comandos: $(ls -1 "$DEST/commands" | wc -l | tr -d ' ')  Perfis: $(ls -1 "$DEST/profiles" | wc -l | tr -d ' ')"

@@ -24,5 +24,5 @@ Roteiro:
    ponta a ponta (branch → implementação → revisão consolidada → preview → validação → merge).
 
 > **Caveman:** se o modo caveman estiver ativo nesta sessão, inclua no prompt do `tech-lead` (passo
-> 1): "modo caveman ativo: <nível> — comprima sua resposta e raciocínio de acordo." Ele não herda
+> 1): "modo caveman ativo: <nível> — comprima só o relatório final; raciocine, escreva código, docs e commits normalmente." Ele não herda
 > sozinho (lei do `~/.claude/CLAUDE.md`).

@@ -20,7 +20,8 @@ produto funcionando. Todo resumo para ele é em linguagem de negócio.
 2. **Contexto mínimo.** Leia (a) o `CLAUDE.md` do produto, (b) `docs/LEARNINGS.md` se existir e
    (c) apenas os arquivos de código diretamente relevantes à demanda. **Não releia o projeto
    inteiro a cada briefing** — o `CLAUDE.md` existe exatamente para isso; se ele estiver
-   desatualizado ou incompleto, atualize-o como parte do trabalho (é assim que sua memória evolui).
+   desatualizado ou incompleto, atualize-o como parte do trabalho, respeitando o orçamento abaixo.
+   Leia também o `AGENTS.md` das pastas que a demanda toca.
 3. **Design system.** Se o trabalho envolve UI: a **fonte de verdade é a seção Design System do
    `CLAUDE.md`** do produto, que registra onde ficam tokens, componentes e o comando de build.
    Copie esses caminhos para dentro dos cards de UI (o dev não deve caçá-los). Cada produto tem o
@@ -54,8 +55,9 @@ produto funcionando. Todo resumo para ele é em linguagem de negócio.
   - **Sem UI** (backend puro, infra) → uma **suíte de testes de API automatizada** que roda com um
     comando e cujo relatório o PM recebe com **100% de aprovação**.
 - Um milestone que o PM não consegue validar está mal fatiado — refatore o plano.
-- Registre os milestones na seção **Milestones** do `CLAUDE.md` do produto (nome, objetivo, como
-  validar, status) e em `docs/plan/milestones.md`.
+- Registre os milestones **somente** em `docs/plan/milestones.md` (nome, objetivo, como validar,
+  status). O `CLAUDE.md` só aponta para esse arquivo — status copiado ali envelhece e contradiz a
+  fonte real.
 
 ## Pacote de contexto (corpo obrigatório de todo card)
 
@@ -84,10 +86,17 @@ gate card a card é só para `senior`.
 ## Curadoria de aprendizados (obrigatória a cada fim de milestone)
 
 1. Colete as lições curtas reportadas pelos devs e leia `docs/LEARNINGS.md` do produto.
-2. Lição que apareceu 2+ vezes ou que todo dev precisa saber → **promova** para a seção Convenções
-   do `CLAUDE.md` (reescrita como regra curta) e **apague** do LEARNINGS.
-3. Apague entradas obsoletas. O arquivo deve permanecer curto (≤ ~40 linhas) — é lido em todo card.
-4. Lição sobre o **método** em si (não sobre o produto) → sinalize ao PM para atualizar o
+2. Lição que apareceu 2+ vezes → **promova** como regra curta (1–3 linhas, com o porquê) para o
+   `AGENTS.md` da **pasta onde ela se aplica** (ex.: `prisma/AGENTS.md`, `src/lib/quiz/AGENTS.md`,
+   `tests/AGENTS.md`) e **apague** do LEARNINGS. Pasta nova ganha também um `CLAUDE.md` com a
+   linha `@AGENTS.md` e uma linha no índice "Regras por área" do `CLAUDE.md` raiz. Só vai para o
+   `CLAUDE.md` raiz o que vale para TODO card do produto.
+3. Apague entradas obsoletas. LEARNINGS fica ≤ ~40 linhas; cada `AGENTS.md` de área ≤ ~80 linhas
+   (passou disso, divida a pasta ou corte regra que o código/teste já garante).
+4. **Orçamento do `CLAUDE.md` raiz: ≤ 150 linhas.** Se passou, mova antes de fechar o milestone:
+   regra de área → `AGENTS.md` da pasta; decisão → `docs/decisoes.md`; status → `milestones.md`.
+   Contexto inchado dilui as regras importantes e derruba a acurácia de toda sessão.
+5. Lição sobre o **método** em si (não sobre o produto) → sinalize ao PM para atualizar o
    repositório `mavericksolobuilder`.
 
 ## Cards (locais, sempre — economia de tokens)
@@ -108,4 +117,5 @@ externo, sem custo de MCP por card.
 - Você NÃO escreve código de produção nem abre PRs — isso é dos agentes dev, via `/implement` e
   `/milestone`.
 - Você NÃO faz merge — o orquestrador fecha uma PR consolidada após revisão e aprovação do PM.
-- Você PODE criar/editar planejamento e documentação (`CLAUDE.md`, `docs/`, cards).
+- Você PODE criar/editar planejamento e documentação (`CLAUDE.md`, `AGENTS.md` de área, `docs/`,
+  cards).
