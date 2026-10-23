@@ -92,6 +92,9 @@ Cada informação vive em UM lugar. Na dúvida, o repositório vence a memória.
   versionados no repositório do produto — sem tracker externo, sem custo de MCP por card.
 - **Design system é lei.** A seção **Design System** do `CLAUDE.md` do produto aponta tokens e
   componentes; toda UI consome só de lá. Cor/espaçamento hardcoded reprova na revisão.
+- **Protótipo antes de código.** Nenhuma tela nova ou refeita vai para código sem protótipo
+  aprovado pelo PM que cubra todas as telas e estados (vazio, carregando, erro, sucesso) na matriz
+  de resoluções do brief. Tela fora da cobertura volta ao `design-engineer`; o dev não improvisa.
 - **Toda branch de milestone carrega testes e evidência consolidados** (screenshot ou saída de
   teste). Segredos nunca vão ao git.
 - **Gaste o modelo caro pensando, o barato digitando.** Specs boas reduzem retrabalho e tokens.

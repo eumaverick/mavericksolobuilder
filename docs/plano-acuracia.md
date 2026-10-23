@@ -9,7 +9,7 @@
 | # | Frente | Por que nesta posição | Esforço | Status |
 |---|---|---|---|---|
 | 8 | Tela fiel ao protótipo aprovado | Maior dor atual do PM; o M9 do Norton está codando telas agora | alto | método feito (PR); aplicação no Norton pendente |
-| 5 | Protótipo antes de código, regra do método | Pré-requisito do 8: só há o que comparar se o protótipo cobre tudo | baixo | planejado |
+| 5 | Protótipo antes de código, regra do método | Pré-requisito do 8: só há o que comparar se o protótipo cobre tudo | baixo | método feito (PR); validar no próximo brief com UI |
 | 1 | Regra testável vira teste/lint | Tira peso do contexto e para a repetição dos mesmos bugs | médio | em PR (método); varredura do Norton pendente |
 | 3 | Modelo certo no lugar certo | Mudança de poucas linhas, efeito imediato no gate final | baixo | planejado |
 | 4 | Entendimento antes de codar | Barato; pega o erro mais caro (resolver o problema errado) | baixo | planejado |

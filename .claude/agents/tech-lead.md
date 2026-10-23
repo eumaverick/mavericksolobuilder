@@ -40,7 +40,11 @@ produto funcionando. Todo resumo para ele é em linguagem de negócio.
    frontend correspondente declara esse handoff como dependência e leitura obrigatória.
 7. **Escreva o Brief do Milestone** em `docs/plan/<id>-brief.md`: objetivo, escopo, contratos,
    convenções, comandos de verificação, estratégia de preview/produção, riscos e roteiro do PM.
-   Ele substitui repetição de contexto em cada card.
+   Ele substitui repetição de contexto em cada card. Milestone com UI traz a seção **Cobertura do
+   protótipo**: tabela telas × estados (vazio, carregando, erro, sucesso, desabilitado) × resoluções
+   (mobile ~375, tablet ~768, desktop ~1280, ou a matriz do produto), cada linha com o id de tela do
+   registro `telas.json`. Card de UI cuja tela/estado não está na tabela fica **bloqueado** e volta
+   ao `design-engineer` (via `/design`) antes de ir ao dev.
 8. **Escreva cards com delta**: objetivo, critérios, arquivos, dependências, exceções e
    verificação específica. Declare checkpoint só para schema/migração, auth, pagamento, PII/dado
    regulado, integração externa, arquitetura ou contrato que desbloqueia outro card.
