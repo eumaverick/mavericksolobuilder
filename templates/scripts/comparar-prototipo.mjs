@@ -10,6 +10,10 @@
  *
  * Registro (JSON): [{ "id": "qi.pergunta.matriz", "proto": "/app.html#qi.pergunta.matriz", "app": "/qi/pergunta",
  *   "mascara": [".norton"], "limitePixels": 0.02, "toleranciaPx": 4, "refs": ["titulo","opcoes","cta"] }]
+ *   - proto: pode ter `{tema}`, trocado pelo tema da rodada (ex.: `/app.html?dock=0&tema={tema}#/home`); use os parâmetros
+ *     do protótipo para tirar menu/aviso/movimento em vez de mascarar o que é só do protótipo.
+ *   - Primeiro uso real (Norton M9, 2026-10-23): o script exige app e protótipo servidos (banco local descartável se o app
+ *     consultar banco), e `playwright-core pngjs pixelmatch` no scratch. Rodou com Brave headless.
  *   - mascara: seletores ocultados nos dois lados (partes animadas).
  *   - limitePixels: fração máxima de pixels diferentes (default 0.02).
  *   - toleranciaPx: desvio máximo de posição/tamanho por data-ref (default 4).
@@ -40,7 +44,8 @@ if (!existsSync(BRAVE)) { console.error(`Brave indisponível em ${BRAVE}; não v
 const req = createRequire(`${scratch}/package.json`);
 const { chromium } = req('playwright-core');
 const { PNG } = req('pngjs');
-const pixelmatch = req('pixelmatch');
+const pm = req('pixelmatch');
+const pixelmatch = pm.default ?? pm;   // v7 é ESM: require devolve { default }
 mkdirSync(saida, { recursive: true });
 
 /** Compara caixas {x,y,w,h} por data-ref; devolve as violações. */
@@ -77,8 +82,8 @@ for (const tela of registro.filter((t) => !so || t.id === so)) {
   const mascara = tela.mascara || []; const refs = tela.refs || [];
   const limite = tela.limitePixels ?? 0.02; const tol = tela.toleranciaPx ?? 4;
   for (const tema of temas) for (const vp of vps) {
-    const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, deviceScaleFactor: 1, locale: 'pt-BR' });
-    const P = await capturar(await ctx.newPage(), protoBase + tela.proto, tema, mascara, refs);
+    const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, deviceScaleFactor: 1, locale: 'pt-BR', reducedMotion: 'reduce' });
+    const P = await capturar(await ctx.newPage(), protoBase + tela.proto.replace('{tema}', tema), tema, mascara, refs);
     const A = await capturar(await ctx.newPage(), appBase + tela.app, tema, mascara, refs);
     const a = PNG.sync.read(P.png); const b = PNG.sync.read(A.png);
     const dif = new PNG({ width: a.width, height: a.height });
@@ -89,7 +94,7 @@ for (const tela of registro.filter((t) => !so || t.id === so)) {
     const geo = [...ausentes, ...compararGeometria(P.caixas, A.caixas, tol)];
     const ok = fracao <= limite && geo.length === 0;
     if (!ok) falhas++;
-    const base = `${tela.id}_${vp.w}x${vp.h}_${tema}`;
+    const base = `${tela.id.replace(/\//g, '__')}_${vp.w}x${vp.h}_${tema}`;
     writeFileSync(resolve(saida, `${base}_proto.png`), P.png);
     writeFileSync(resolve(saida, `${base}_app.png`), A.png);
     writeFileSync(resolve(saida, `${base}_diff.png`), PNG.sync.write(dif));
