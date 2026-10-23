@@ -22,6 +22,12 @@ Siga este roteiro:
    (visão, stack, convenções, comandos — ≤ 150 linhas; status de milestones só em
    `docs/plan/milestones.md`, decisões em `docs/decisoes.md`) e crie `docs/LEARNINGS.md`
    a partir de `~/.claude/templates/LEARNINGS.md`.
+   **Hooks determinísticos:** copie `~/.claude/templates/claude-settings.json` para
+   `.claude/settings.json` do produto (se já existir, mescle só a chave `hooks`), adicione ao
+   `.gitignore` `.claude/.testes-verdes`, `.claude/hooks-tempo.log` e `.claude/.tsbuildinfo`, e crie o
+   script `test:card` (teste do card + `marcar-testes-verdes.sh`, ver perfil de stack). O hook de
+   edição roda lint e a guarda de cor hardcoded; o `SubagentStop` dos `dev-*` bloqueia o "feito" sem
+   suíte verde depois da última edição e sem typecheck limpo.
 5. **Publique no GitHub JÁ** (antes de qualquer card): crie o repositório privado, garanta
    `.env`/segredos no `.gitignore`, faça o primeiro commit e push. **GitHub é a fonte de verdade
    desde o dia 0** — registre a URL do repositório na seção Git do `CLAUDE.md`.
