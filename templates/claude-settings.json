@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/templates/scripts/hook-pos-edicao.sh\"",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "dev-junior|dev-pleno|dev-senior",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/templates/scripts/hook-parar-dev.sh\"",
+            "timeout": 180
+          }
+        ]
+      }
+    ]
+  }
+}

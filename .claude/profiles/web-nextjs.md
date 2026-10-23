@@ -15,6 +15,7 @@ Use este perfil para aplicações web. É o caminho mais amigável para quem nã
 - Build: `pnpm build`
 - Testes: `pnpm test`
 - Lint: `pnpm lint`
+- Teste do card (com marcador para o hook): script `test:card` = `<runner de teste> && bash "$HOME/.claude/templates/scripts/marcar-testes-verdes.sh"`. Os devs rodam este; o `SubagentStop` só libera o "feito" depois dele verde.
 
 ## Bootstrap (projeto novo)
 `pnpm create next-app@latest . --ts --tailwind --eslint --app --src-dir --use-pnpm`
