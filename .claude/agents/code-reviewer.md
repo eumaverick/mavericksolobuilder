@@ -22,6 +22,10 @@ card e diff relevante. Abra arquivo completo só quando o diff não bastar; nunc
 3. **Design system (para diffs de UI):** procure cor/espaçamento hardcoded (hex, rgb, px mágicos)
    fora dos tokens — ex.: `grep -nE '#[0-9a-fA-F]{3,8}|rgb\(' <arquivos do diff>`. Valor visual
    que não deriva dos tokens do produto = **reprovado**.
+   **Fidelidade ao protótipo (diffs de UI, bloqueante):** confira o relatório de
+   `comparar-prototipo.mjs` (`relatorio.md`) de cada card de UI e **abra as imagens das telas que
+   falharam** (`comparacao.html`). Falha sem desvio justificado na seção **Desvios** do relatório do
+   dev, ou desvio sem aprovação do PM = 🔴. Sem relatório para um card de UI = 🔴.
 4. **Handoff (para backend consumido por frontend):** o diff inclui/atualiza
    `docs/handoffs/<feature>.md` completo (endpoints, payloads, erros, exemplos)? Sem handoff =
    **reprovado** — o card de frontend seguinte depende dele.

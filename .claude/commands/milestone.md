@@ -23,7 +23,10 @@ Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar 
       regulado, integração externa, arquitetura ou contrato que desbloqueia outro card, acione
       `code-reviewer` antes do dependente. Achado bloqueante/importante volta ao mesmo dev; duas
       falhas → pare e escale ao PM.
-   e. Paralelize somente cards sem dependência e sem arquivos/contratos em comum, em worktrees
+   e. **Checkpoint de fidelidade (milestone com UI):** a primeira tela de UI implementada vai ao PM
+      lado a lado com o protótipo (`comparacao.html`) antes das demais; aprovada, vira a referência
+      de "fiel o bastante" para o resto. Reprovada, corrija antes de seguir (conta como uma falha).
+   f. Paralelize somente cards sem dependência e sem arquivos/contratos em comum, em worktrees
       isolados; se houver dúvida, execute em sequência.
 
 3. **Feche tecnicamente o milestone.** Rode testes integrados, build/lint/typecheck e E2E conforme

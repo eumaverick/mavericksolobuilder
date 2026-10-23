@@ -14,6 +14,10 @@ Roteiro:
 2. **Acione o subagente `design-engineer`** para criar/evoluir:
    - **design system** — tokens **DTCG** (no caminho do produto: `design/tokens.json` ou pacote `design-tokens` em monorepo) + build multi-plataforma (`pnpm tokens:build`) + componentes acessíveis (Tailwind + shadcn/Radix), catalogados no **Storybook**; e/ou
    - **protótipos navegáveis** — telas/fluxos reais e clicáveis (páginas com roteamento), reaproveitando os tokens.
+   O protótipo **consome o build real de tokens do produto** (token novo entra em `design/tokens.json`,
+   nunca num CSS paralelo), tem **id estável por tela/estado** (`data-tela`) e `data-ref` nos
+   elementos-chave, e um **registro de telas** (`telas.json`). Ao aprovar, o PM congela o protótipo
+   (`prototipo-<milestone>-aprovado`).
 3. **Acessibilidade (WCAG 2.2 AA):** rode axe (Storybook a11y / Playwright) e Lighthouse; corrija até passar.
 4. **Validação visual:** o design-engineer abre o resultado no navegador, tira screenshots por breakpoint/estado e itera.
 5. **Persistir + publicar:** tokens/componentes versionados no repo; Storybook e protótipos com **deploy em URL fixa** na Vercel (gate de login simples se o acesso precisar ser restrito).
