@@ -27,7 +27,9 @@ Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar 
       lado a lado com o protótipo (`comparacao.html`) antes das demais; aprovada, vira a referência
       de "fiel o bastante" para o resto. Reprovada, corrija antes de seguir (conta como uma falha).
    f. Paralelize somente cards sem dependência e sem arquivos/contratos em comum, em worktrees
-      isolados; se houver dúvida, execute em sequência.
+      isolados; se houver dúvida, execute em sequência. Antes de paralelizar, confira em
+      `memory_query` (`path_prefix: "ocupacao/"`) que nenhuma área dos cards está ocupada por outra
+      sessão/ferramenta (regra "Um escritor por área"); ocupada → sequencie ou avise o PM.
 
 3. **Feche tecnicamente o milestone.** Rode testes integrados, build/lint/typecheck e E2E conforme
    o brief; reúna uma evidência suficiente por fluxo. Acione `code-reviewer` uma vez, **com `model: opus`**
