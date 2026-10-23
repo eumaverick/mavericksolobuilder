@@ -40,7 +40,11 @@ Você é o **orquestrador da esteira**. Siga a máquina de estados sem inventar 
 
 5. **Publique somente após aprovação explícita.** Crie uma PR consolidada, squash-merge em `main`,
    `git push` e confirme o deploy de produção. Então marque cards como Done, acione o Tech Lead
-   para curar `LEARNINGS.md` e atualizar status do milestone em um único commit/push.
+   para curar `LEARNINGS.md` e atualizar status do milestone em um único commit/push. No mesmo
+   commit, registre em `docs/plan/milestones.md` o bloco **Métricas de acurácia** (modelo em
+   `~/.claude/templates/milestone.md`): achados 🔴/🟡 da revisão consolidada, cards devolvidos ao
+   Tech Lead, correções após a primeira entrega, escaladas ao PM, reprovações na homologação e
+   telas reprovadas por fidelidade ao protótipo. Use números reais; sem dado, `n/d`.
 
 6. **Resuma ao PM:** entrega, URL/roteiro, evidências, PR consolidada e próximo milestone.
 
