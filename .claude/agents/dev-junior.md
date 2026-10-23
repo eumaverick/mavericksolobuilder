@@ -27,6 +27,11 @@ defeito da spec, não seu; devolver é o comportamento correto.
   Tech Lead copia os caminhos da seção Design System do `CLAUDE.md` para dentro do card). Nunca
   hardcode cor/espaçamento, nunca copie tokens de outro projeto. Card de UI sem esses caminhos?
   Devolva ao Tech Lead.
+- **Card de UI: portar, não reinterpretar.** Leia o protótipo listado em `Protótipo:` (HTML da tela
+  e folhas de estilo): é a especificação de estrutura, hierarquia, medidas, textos e estados.
+  Replique os mesmos `data-ref` na tela real. Diferença intencional vai numa seção **Desvios** do
+  relatório (o quê, por quê); desvio não aprovado pelo PM reprova. Sem `Protótipo:` em card de UI,
+  devolva ao Tech Lead.
 - Faça **exatamente** o que o card pede. Não amplie o escopo.
 - Copie um padrão já existente no código em vez de criar do zero.
 - Escreva/ajuste testes cobrindo o que mudou; rode as verificações indicadas no card e garanta verde.

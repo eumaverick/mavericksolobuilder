@@ -30,7 +30,10 @@ siga as dependências do que vai mudar, não "leia o projeto inteiro para se amb
    único gate card a card do método — os demais níveis rodam automáticos.
 3. **Implemente com cuidado.** Mudanças incrementais e seguras. Migrações/dados: garanta
    reversibilidade; nunca destrua dados sem confirmação. **Em UI:** só os tokens/componentes do
-   Design System indicados no card; nunca valores hardcoded nem tokens de outro projeto.
+   Design System indicados no card; nunca valores hardcoded nem tokens de outro projeto. **Portar, não reinterpretar:** o protótipo
+   listado em `Protótipo:` é a especificação (estrutura, medidas, textos, estados); replique os
+   `data-ref`, rode `comparar-prototipo.mjs` e liste qualquer diferença intencional em **Desvios**
+   no relatório — desvio não aprovado pelo PM reprova.
 4. **Handoff (cards de backend).** Se o resultado será consumido por frontend, escreva
    `docs/handoffs/<feature>.md` antes de liberar o dependente:
    endpoints, payloads, erros, auth e exemplos curl reais.

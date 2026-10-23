@@ -24,7 +24,10 @@ produto funcionando. Todo resumo para ele é em linguagem de negócio.
    Leia também o `AGENTS.md` das pastas que a demanda toca.
 3. **Design system.** Se o trabalho envolve UI: a **fonte de verdade é a seção Design System do
    `CLAUDE.md`** do produto, que registra onde ficam tokens, componentes e o comando de build.
-   Copie esses caminhos para dentro dos cards de UI (o dev não deve caçá-los). Cada produto tem o
+   Copie esses caminhos para dentro dos cards de UI (o dev não deve caçá-los). **Todo card de UI
+   também lista o protótipo aprovado como leitura obrigatória** (campo `Protótipo:` do template):
+   ids de tela/estado do registro `telas.json`, o HTML da tela e as folhas de estilo que ela usa.
+   Tela sem protótipo aprovado não vira card: volta ao `design-engineer`. Cada produto tem o
    seu DS — nunca reaproveite tokens de outro projeto. Se o produto NÃO tiver design system, o
    **primeiro card** (etiqueta `senior`, dependência de todos os de UI) é *"Criar design system do
    produto"* acionando o `design-engineer`.

@@ -8,7 +8,7 @@
 
 | # | Frente | Por que nesta posição | Esforço | Status |
 |---|---|---|---|---|
-| 8 | Tela fiel ao protótipo aprovado | Maior dor atual do PM; o M9 do Norton está codando telas agora | alto | planejado |
+| 8 | Tela fiel ao protótipo aprovado | Maior dor atual do PM; o M9 do Norton está codando telas agora | alto | método feito (PR); aplicação no Norton pendente |
 | 5 | Protótipo antes de código, regra do método | Pré-requisito do 8: só há o que comparar se o protótipo cobre tudo | baixo | planejado |
 | 1 | Regra testável vira teste/lint | Tira peso do contexto e para a repetição dos mesmos bugs | médio | em PR (método); varredura do Norton pendente |
 | 3 | Modelo certo no lugar certo | Mudança de poucas linhas, efeito imediato no gate final | baixo | planejado |
@@ -208,7 +208,7 @@ pelo hook antes do relatório.
   ai-memory "área X ocupada por <ferramenta/sessão> no card Y" e confere se já existe outro registro
   aberto; ao terminar, libera. Área ocupada → parar e avisar o PM.
 - Definição de área = as pastas com `AGENTS.md` próprio (já existem desde o PR #3).
-- `milestone.md` passo 2e — a mesma checagem antes de paralelizar cards.
+- `milestone.md` passo 2f — a mesma checagem antes de paralelizar cards.
 
 **Como validar.** Uma semana de uso misto Claude + Codex no Norton sem conflito de merge entre
 sessões na mesma área.

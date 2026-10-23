@@ -29,6 +29,11 @@ tiver uma lacuna que muda a solução, devolva o card ao Tech Lead com a pergunt
    UI:** consuma SÓ os tokens/componentes indicados no card (caminhos vêm da seção Design System
    do `CLAUDE.md`); nada de cor/espaçamento hardcoded; para plugar telas em API, siga o handoff
    `docs/handoffs/<feature>.md` declarado como dependência — se ele não existir, devolva o card.
+   **Portar, não reinterpretar:** o protótipo listado em `Protótipo:` (HTML da tela + folhas de
+   estilo) é a especificação de estrutura, hierarquia, medidas, textos e estados. Replique os mesmos
+   `data-ref` na tela real e rode `comparar-prototipo.mjs` para a tela do card. Diferença
+   intencional vai numa seção **Desvios** do relatório (o quê, por quê); desvio não aprovado pelo
+   PM reprova. Sem `Protótipo:` em card de UI, devolva ao Tech Lead.
 4. **Testes.** Cubra o comportamento novo; suíte + lint verdes.
 5. **Handoff (backend).** Se o resultado será consumido por frontend, escreva
    `docs/handoffs/<feature>.md` antes de liberar o dependente: endpoints, payloads, erros, auth e

@@ -27,12 +27,17 @@
 - <somente contrato, exceção ou convenção que este card acrescenta/altera>
 - <se card de UI:> Tokens: `<caminho>` · Componentes: `<caminho>` · Storybook: `<URL>`
 
+**Protótipo:** <só card de UI — ids de tela/estado do registro `telas.json` · HTML da tela · folhas de estilo que ela usa; ou "n/a">
+> Leitura obrigatória do dev. É a especificação: estrutura, hierarquia, medidas, textos e estados
+> vêm dele. Diferença intencional vai em **Desvios** no relatório; desvio sem aprovação do PM reprova.
+
 **Dependências:**
 - <card(s) que precisam estar Done antes>
 - <se card de frontend:> leitura obrigatória do handoff `docs/handoffs/<feature>.md`
 
 **Como verificar:**
 - Testes: `<comando>` · Lint: `<comando>`
+- <se card de UI:> `node scripts/comparar-prototipo.mjs --tela <id>` com relatório verde nas resoluções/temas do brief (ou desvios listados)
 - Evidência para a entrega do milestone: <screenshot da tela X / request→response do endpoint Y>
 
 **Fora do escopo:**
