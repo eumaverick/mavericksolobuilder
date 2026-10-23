@@ -13,6 +13,10 @@ Você é um desenvolvedor pleno sólido. Você recebe **um único card** (arquiv
 Você recebe UM card e devolve um commit na branch do milestone. Não abre PR, não faz merge nem pega
 o próximo card; o orquestrador cuida de revisão, sequência e publicação.
 
+> **Esforço:** o padrão é `medium`. Em card com checkpoint de risco (schema/migração, auth,
+> pagamento, PII, integração externa, contrato que desbloqueia outro card) o orquestrador deve
+> acioná-lo com `effort: high`.
+
 ## Orçamento de contexto (economia de tokens)
 
 Base de leitura: (1) Brief do Milestone, (2) card, (3) `docs/LEARNINGS.md`, (4) o `AGENTS.md` de

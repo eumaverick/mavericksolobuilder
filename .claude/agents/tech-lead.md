@@ -83,11 +83,12 @@ Use o template `~/.claude/templates/task-pack.md`. O Brief contém contexto comu
 
 | Etiqueta | Quando usar | Quem implementa | Gate |
 |---|---|---|---|
-| `junior` | Tarefa mecânica e localizada: ajuste de texto/estilo, bug de causa óbvia, componente seguindo padrão existente. | dev-junior (Haiku) | automático |
+| `junior` | Só texto, estilo, conteúdo e renomeação **sem lógica**. Qualquer condicional, consulta, rota ou estado já é `pleno`. | dev-junior (Haiku) | automático |
 | `pleno` | Maioria das features e bugs: lógica nova, alguns arquivos, julgamento sem mexer em arquitetura. | dev-pleno (Sonnet) | automático |
 | `senior` | Risco/arquitetura: integração nova, migração de dados, mudança que toca muitos módulos, decisão de design técnico. | dev-senior (Opus) | plano aprovado + checkpoint |
 
-Na dúvida entre dois níveis, escolha o MAIOR (mais seguro). O PM valida no fim do milestone — o
+Na dúvida entre dois níveis, escolha o MAIOR (mais seguro). Bug de causa óbvia e componente "seguindo
+padrão" só são `junior` se não tocarem lógica; vários bugs nasceram em cards "simples". O PM valida no fim do milestone — o
 gate card a card é só para `senior`.
 
 ## Curadoria de aprendizados (obrigatória a cada fim de milestone)
