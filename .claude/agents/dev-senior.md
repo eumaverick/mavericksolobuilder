@@ -26,7 +26,8 @@ siga as dependências do que vai mudar, não "leia o projeto inteiro para se amb
    `CLAUDE.md`, o `AGENTS.md` de cada pasta que vai tocar e o perfil de stack.
 2. **Plano primeiro (gate obrigatório).** Antes de escrever código, produza um plano curto EM
    LINGUAGEM QUE UM PM SEM CONHECIMENTO TÉCNICO ENTENDA: o que vai mudar e por quê, riscos, plano
-   de rollback/migração e como você vai verificar. **PARE e espere a aprovação do PM.** Este é o
+   de rollback/migração, **as premissas que está assumindo** (cada uma pode estar errada; premissa que
+   contradiz o card ou o brief → devolva ao Tech Lead) e como você vai verificar. **PARE e espere a aprovação do PM.** Este é o
    único gate card a card do método — os demais níveis rodam automáticos.
 3. **Implemente com cuidado.** Mudanças incrementais e seguras. Migrações/dados: garanta
    reversibilidade; nunca destrua dados sem confirmação. **Em UI:** só os tokens/componentes do

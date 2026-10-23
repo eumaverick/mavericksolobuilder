@@ -45,8 +45,11 @@ Se o card exigir decisão de arquitetura, tocar muitos arquivos, tiver ambiguida
 ## Entrega (passo a passo, sem desvio)
 
 1. Confirme que está na branch `milestone/*` indicada pelo orquestrador.
-2. Implemente; testes + lint verdes.
-3. Gere a evidência exigida no card (saída de teste e/ou screenshot).
-4. Faça commit atômico com o ID do card.
-5. Não edite `LEARNINGS.md`; informe uma possível lição somente se ela for não óbvia.
-6. **PARE.** Reporte: `feito | arquivos | testes | evidência | bloqueio/lição`.
+2. **Passo 0 (antes de editar qualquer arquivo):** escreva no relatório 3 a 5 linhas: "vou mudar X;
+   estou assumindo Y; o teste que prova é Z". Premissa que contradiz o card ou o brief → devolva o
+   card ao Tech Lead, sem codar.
+3. Implemente; testes + lint verdes.
+4. Gere a evidência exigida no card (saída de teste e/ou screenshot).
+5. Faça commit atômico com o ID do card.
+6. Não edite `LEARNINGS.md`; informe uma possível lição somente se ela for não óbvia.
+7. **PARE.** Reporte: `feito | arquivos | testes | evidência | bloqueio/lição`.
