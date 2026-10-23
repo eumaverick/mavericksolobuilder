@@ -15,7 +15,7 @@
 | 4 | Entendimento antes de codar | Barato; pega o erro mais caro (resolver o problema errado) | baixo | método feito (PR); medir na frente 6 |
 | 6 | Medir a acurácia por milestone | Sem número não dá para saber se 1–5 e 8 funcionaram | baixo | método feito (PR); preencher nos próximos milestones |
 | 2 | Hooks determinísticos no Claude Code | Mexe no harness; fazer depois que 1 definir o que checar | médio | método feito (PR); validar com erro de tipo proposital num card do Norton |
-| 7 | Um escritor por área entre ferramentas | Depende do ai-memory em uso real por alguns dias | médio | planejado |
+| 7 | Um escritor por área entre ferramentas | Depende do ai-memory em uso real por alguns dias | médio | método feito (PR); validar com uma semana de uso misto Claude + Codex |
 
 Toda frente termina com: PR neste repositório → aprovação do PM → merge → `./install.sh` no
 checkout principal → validação no próximo milestone real (Norton M9 é o piloto).
