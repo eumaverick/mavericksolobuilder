@@ -15,8 +15,9 @@
 **Checkpoint técnico:** <nenhum | antes do próximo dependente: motivo de risco/contrato>
 
 **Critérios de aceite:**
-- [ ] <condição verificável 1>
-- [ ] <condição verificável 2>
+- [ ] Dado <estado inicial>, quando <ação>, então <resultado observável>
+- [ ] Dado <estado inicial>, quando <ação>, então <resultado observável>
+> Comportamento verificável, não intenção: é onde o dev ancora o passo 0 ("o teste que prova é Z").
 - [ ] <se card de backend consumido por frontend:> handoff escrito em `docs/handoffs/<feature>.md`
 
 **Arquivos:**
