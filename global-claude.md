@@ -73,7 +73,8 @@ Cada informação vive em UM lugar. Na dúvida, o repositório vence a memória.
 | Histórico de sessão, handoff Claude Code ↔ Codex, preferências pessoais | **ai-memory** (MCP + hooks, já instalado) | automático |
 
 - **ai-memory é a memória de sessão de registro.** Não use a auto-memória local do Claude Code nem
-  arquivos de continuidade paralelos. Fato duradouro de projeto vai para o repositório; preferência
+  crie arquivos de continuidade paralelos (o checkpoint que o projeto já declara é mantido; ver
+  "Visibilidade entre Claude Code e Codex"). Fato duradouro de projeto vai para o repositório; preferência
   pessoal que vale para todo projeto vai para o perfil do ai-memory (`scope: "profile"`).
 - **Um escritor por área.** Área = pasta com `AGENTS.md` próprio. Antes de codar numa área, o
   agente a reserva no ai-memory: `memory_write_page` em `ocupacao/<pasta-da-area>.md`, com
@@ -88,6 +89,37 @@ Cada informação vive em UM lugar. Na dúvida, o repositório vence a memória.
   sessão: ele envelhece e passa a contradizer a fonte real.
 - O Codex lê estas mesmas regras via `~/.codex/AGENTS.md` (ver `global-agents.md` no repositório do
   método).
+
+## Visibilidade entre Claude Code e Codex (obrigatória, em todo projeto)
+
+O PM codifica com Claude Code **e** Codex nesta máquina. **Tudo que uma ferramenta fizer tem de ser
+encontrável pela outra sem depender do chat.** O canal é: **git** (código e docs commitados) +
+**ai-memory** (handoff e ocupação de área) + o **checkpoint do projeto**, quando ele declarar um.
+
+1. **Abra a sessão dentro da pasta do projeto, nunca em `~`.** O ai-memory resolve o projeto pelo
+   remoto git da pasta; sessão aberta fora cai num projeto errado e o outro agente não a enxerga.
+   Se a sessão já nasceu fora, passe `workspace` e `project` explícitos em toda chamada do ai-memory.
+2. **Ao começar:** consuma o handoff (bloco do SessionStart; `memory_handoff_list` se não vier; ou
+   `memory_recent`), leia o checkpoint do projeto se existir e confira branch, HEAD e `git status`
+   antes de agir. Se houver sessão não encerrada com trabalho mais novo, leia as observações dela
+   antes de qualquer handoff antigo.
+3. **Ao editar:** reserve a área em `ocupacao/` (regra acima) e trabalhe em branch/worktree. Nada
+   importante fica só em arquivo local: o que não está commitado é invisível para o outro agente e
+   pode se perder.
+4. **Ao concluir uma tarefa relevante e ao encerrar a sessão (não é opcional):**
+   (a) commit e push na branch de trabalho (nunca na `main`); se algo não puder ser commitado, o
+   handoff lista o caminho exato; (b) atualize o checkpoint do projeto, se houver;
+   (c) registre `memory_handoff_begin` com `shared: true`: resumo curto, `next_steps`,
+   `open_questions` e `files_touched`, citando **branch, HEAD e onde estão plano e cards**;
+   (d) libere as ocupações (`memory_delete_page`).
+5. **Decisões e aprovações do PM** vão para um documento do repositório, com data, e são citadas no
+   handoff. Nunca presuma nem invente aprovação, e nunca apresente teste antigo como recém-executado.
+6. **O que não fazer:** gravar fato de projeto na memória local de uma ferramenta (auto-memória do
+   Claude Code, memória do Codex); criar por conta própria um arquivo de continuidade paralelo (se o
+   projeto já declara um checkpoint, mantenha-o); pôr segredo ou PII em handoff.
+7. **Handoff é ponteiro, não fonte de verdade.** Quem recebe confere o repositório antes de confiar no
+   texto. O handoff é de uso único (quem aceita consome): registre um novo a cada tarefa relevante,
+   inclusive quando a próxima sessão for da mesma ferramenta.
 
 ## Princípios inegociáveis
 

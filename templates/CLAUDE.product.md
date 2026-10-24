@@ -50,6 +50,10 @@ lições recorrentes do `docs/LEARNINGS.md`.
 - **Aprendizados:** `docs/LEARNINGS.md` — dev lê; Tech Lead atualiza uma vez no fim do milestone.
 - **Handoffs de API (backend → frontend):** `docs/handoffs/<feature>.md` — contrato que o dev de
   frontend segue para plugar as telas.
+- **Claude Code e Codex trabalham neste produto:** vale a regra global "Visibilidade entre Claude
+  Code e Codex" (`~/.claude/CLAUDE.md`): sessão aberta na pasta do produto, handoff no ai-memory ao
+  começar e ao concluir, commit + push na branch do milestone. Se o produto adotar um checkpoint
+  compartilhado (ex.: `docs/handoffs/CONTINUIDADE.md`), declare-o aqui.
 
 ## Comandos
 - Instalar: `<...>`
