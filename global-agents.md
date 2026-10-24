@@ -20,3 +20,8 @@ O Codex segue o MESMO método do Claude Code. As regras globais vêm logo abaixo
   o Codex só carrega sozinho os `AGENTS.md` do caminho até o diretório atual.
 - **Memória.** Use o ai-memory (MCP + hooks) para continuidade com o Claude Code. Não grave fatos
   de projeto na memória local do Codex.
+- **Visibilidade com o Claude Code.** Siga a seção "Visibilidade entre Claude Code e Codex" abaixo:
+  abra a sessão na pasta do projeto, leia o handoff do ai-memory ao começar e, ao concluir tarefa
+  relevante ou encerrar, faça commit + push na branch de trabalho e registre
+  `memory_handoff_begin` (`shared: true`). O que você deixar só em arquivo local ou no chat o Claude
+  Code não enxerga.
